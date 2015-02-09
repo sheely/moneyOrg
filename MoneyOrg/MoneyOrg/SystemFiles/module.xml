@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <module
+    name="login"
+    target="SHLoginViewController"
+    type = "--"
+    icon = "tab_news.png"
+    title = "登录"
+    pre_action = "notification_login_successful"
+
+    />
+    <module
+    name="product_list"
+    target="SHProductListViewController"
+    type = "main"
+    icon = "ic_list.png"
+    title = "产品列表"
+    />
+
+    <module
+    name="recommend"
+    target="SHMyAssembleViewController"
+    type = "main"
+    icon = "ic_recommend@2x.png"
+    title = "我的组合"
+    />
+    <module
+    name="create_assemble"
+    target="SHCreateAssembleViewController"
+    type = "--"
+    icon = ""
+    title = "我的组合"
+    />
+    
+    <module
+    name="wealth"
+    target="SHMyWealthFinancialViewController"
+    type = "main"
+    icon = "ic_money@2x.png"
+    title = "我的财富"
+    />
+    <module
+    name="mainpage"
+    target="SHMainPageViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "首页"
+    />
+    
+    <module
+    name="register"
+    target="SHRegViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "注册"
+    />
+    <module
+    name="prod_detail"
+    target="SHProductDetialViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "产品详情"
+    />
+    <module
+    name="order_list"
+    target="SHOrderListViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "订单列表"
+    />
+    
+    <module
+    name="order_detail"
+    target="SHOrderDetailViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "订单详情"
+    />
+
+   </root>
