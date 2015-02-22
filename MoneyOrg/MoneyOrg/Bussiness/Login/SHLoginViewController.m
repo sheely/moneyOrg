@@ -59,6 +59,7 @@
     [p start:^(SHTask *t) {
         [self.txtPassword resignFirstResponder];
         [self.txtLogin resignFirstResponder];
+        [[NSUserDefaults standardUserDefaults]setValue:[ t.result valueForKey:@"UserType"] forKey:@"UserType"];
         [self dismissWaitDialog];
            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN_SUCCESSFUL object:nil];
     } taskWillTry:^(SHTask *t) {

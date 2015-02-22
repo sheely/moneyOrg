@@ -28,7 +28,7 @@
     [super viewDidLoad];
     self.title = @"产品列表";
     poductType = @"1";
-    pdsubtype = @"1";
+    pdsubtype = @"0";
     SearchType = @"1";
     GroupID = @"";
     if ([self.intent.args valueForKey:@"group_id"]) {
@@ -37,11 +37,11 @@
         SHProductAssembleView * view = [[[NSBundle mainBundle]loadNibNamed:@"SHProductAssembleView" owner:nil options:nil]objectAtIndex:0];
         view.labTitle.text = [self.intent.args valueForKey:@"group_name"];
         view.frame = CGRectMake(0, 0, 320, 44);
+        self.title = @"组合明细";
         [self.view addSubview:view];
     }
     titleview = [[[NSBundle mainBundle]loadNibNamed:@"SHProductTitleView" owner:nil options:nil]objectAtIndex:0];
     selectButton = self.btnT1;
-    [self performSelector:@selector(loginSuc) afterNotification:@"notification_login_successful"];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -53,6 +53,9 @@
 
 - (void)loadNext
 {
+    if ([SHEntironment.instance.loginName length] == 0) {
+        return;
+    }
     SHPostTaskM * p = [[SHPostTaskM alloc]init];
     p.URL = URL_FOR(@"GetProductList");
     [p.postArgs setValue:SearchType forKey:@"SearchType"];
@@ -76,7 +79,7 @@
         [self.tableView reloadData];
         [self dismissWaitDialog];
     } taskWillTry:nil taskDidFailed:^(SHTask *t ) {
-        //[t.respinfo show];
+        [t.respinfo show];
         [self dismissWaitDialog];
     }];
 }
@@ -108,8 +111,23 @@
     cell.labNum.text = [dic valueForKey:@"ProductCode"];
     cell.labName.text = [dic valueForKey:@"ShortProductName"];
     cell.labCusNum.text = [[dic valueForKey:@"CustomerNum"] stringValue];
-
+    if([poductType caseInsensitiveCompare:@"1"]== NSOrderedSame){
+        cell.btnOrder.hidden = YES;
+    }else{
+        cell.btnOrder.tag = indexPath.row;
+        [cell.btnOrder addTarget:self action:@selector(btnOrder:) forControlEvents:UIControlEventTouchUpInside];
+    }
     return cell;
+}
+
+- (void)btnOrder:(UIButton *)b
+{
+    NSDictionary * dic = [mList objectAtIndex:b.tag];
+    SHIntent * i = [[SHIntent alloc]init:@"customer_list" delegate:nil containner:self.navigationController];
+    [i.args setValue:@"2" forKey:@"type"];
+    [i.args setValue:[dic valueForKey:@"ProductID"] forKey:@"product_id"];
+    [i.args setValue:[dic valueForKey:@"ShortProductName"] forKey:@"product_name"];
+    [[UIApplication sharedApplication]open:i];
 }
 
 - (float) tableView:(UITableView *)tableView heightForGeneralRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,21 +162,82 @@
 - (IBAction)btnT1OnTouch:(UIButton*)sender {
     
     
-    NSArray * array = @[ [KxMenuItem menuItem:@"货币基金" image:nil target:self action:@selector(btn1ArrayOnTouch:)],
-                          [KxMenuItem menuItem:@"股票基金" image:nil target:self action:@selector(btn1ArrayOnTouch:)],
-                          [KxMenuItem menuItem:@"混合基金" image:nil target:self action:@selector(btn1ArrayOnTouch:)],
-                          [KxMenuItem menuItem:@"债券基金" image:nil target:self action:@selector(btn1ArrayOnTouch:)],
-                          [KxMenuItem menuItem:@"其它" image:nil target:self action:@selector(btn1ArrayOnTouch:)]];
+    NSArray * array = @[ [KxMenuItem menuItem:@"股票基金" image:nil target:self action:@selector(kxm0:)],
+                          [KxMenuItem menuItem:@"债券基金" image:nil target:self action:@selector(kxm1:)],
+                          [KxMenuItem menuItem:@"货币基金" image:nil target:self action:@selector(kxm2:)],
+                          [KxMenuItem menuItem:@"混合基金" image:nil target:self action:@selector(kxm3:)],
+                          [KxMenuItem menuItem:@"其它基金" image:nil target:self action:@selector(kxm4:)]];
     [KxMenu showMenuInView:self.view fromRect:sender.frame menuItems:array];
+    
 }
-
-- (void)btn1ArrayOnTouch:(KxMenuItem*)sender
+- (void)kxm0:(KxMenuItem*)sender
 {
     
     selectButton.selected = NO;
     selectButton = self.btnT1;
     self.btnT1.selected = YES;
     poductType = @"1";
+    pdsubtype = @"0";
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateNormal];
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateSelected];
+
+    [self reSet];
+    
+}
+- (void)kxm4:(KxMenuItem*)sender
+{
+    
+    selectButton.selected = NO;
+    selectButton = self.btnT1;
+    self.btnT1.selected = YES;
+    poductType = @"1";
+    pdsubtype = @"4";
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateNormal];
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateSelected];
+
+    [self reSet];
+    
+}
+- (void)kxm3:(KxMenuItem*)sender
+{
+    
+    selectButton.selected = NO;
+    selectButton = self.btnT1;
+    self.btnT1.selected = YES;
+    poductType = @"1";
+    pdsubtype = @"3";
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateNormal];
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateSelected];
+
+    [self reSet];
+    
+}
+- (void)kxm2:(KxMenuItem*)sender
+{
+    
+    selectButton.selected = NO;
+    selectButton = self.btnT1;
+    self.btnT1.selected = YES;
+    poductType = @"1";
+    pdsubtype = @"2";
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateNormal];
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateSelected];
+
+    [self reSet];
+    
+}
+
+- (void)kxm1:(KxMenuItem*)sender
+{
+    
+    selectButton.selected = NO;
+    selectButton = self.btnT1;
+    self.btnT1.selected = YES;
+    poductType = @"1";
+    pdsubtype = @"1";
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateNormal];
+    [self.btnT1 setTitle:sender.title forState:(UIControlState)UIControlStateSelected];
+
     [self reSet];
 
 }

@@ -27,7 +27,10 @@
     SHIntent * intent  = [[SHIntent alloc]init:@"create_assemble" delegate:nil containner:self.navigationController];
     [[UIApplication sharedApplication]open:intent];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self loadNext];
+}
 - (void)loadNext
 {
     [self showWaitDialogForNetWork];

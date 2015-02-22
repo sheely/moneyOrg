@@ -95,4 +95,6 @@
 
 #define IPHONE4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
 
+#define USER_TYPE ([[[NSUserDefaults standardUserDefaults ] valueForKey:@"UserType"] intValue])
+
 

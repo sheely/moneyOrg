@@ -25,14 +25,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)btnValidOnTouch:(id)sender {
+    
+    if([self.txtName.text length] >= 11){
+        SHPostTaskM * post = [[SHPostTaskM alloc]init];
+        [post.postArgs setValue:self.txtName.text forKey:@"Mobile"];
+        post.URL = URL_FOR(@"SendCode");
+        [post start:^(SHTask *t) {
+            [t.respinfo show];
+        } taskWillTry:nil taskDidFailed:^(SHTask *t) {
+            [t.respinfo show];
+        }];
+        
+    }
 }
-*/
 
+- (IBAction)btnRegistOnTouch:(id)sender {
+}
 @end

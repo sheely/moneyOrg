@@ -56,23 +56,26 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_remain" object:@"car"];
 }
 
-- (void)viewDidLoad
+-(void)loginSuc
 {
-    [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification:) name:NOTIFICATION_LOGIN_SUCCESSFUL object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageChanged:) name:@"newmessage" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_remain:) name:@"notification_remain" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderchage:) name:@"orderchage" object:nil];//消息通知
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newreport:) name:@"newreport" object:nil];//消息通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(carprofilechange:) name:@"carprofilechange" object:nil];//消息通知
-    
     mDictionary  = [[NSMutableDictionary alloc]init];
-      NSArray * array = [SHModuleHelper  instance].modulelist;
+    NSArray * array = [SHModuleHelper  instance].modulelist;
     list = [[NSMutableArray alloc]init];
     sublist = [[NSMutableArray alloc]init];
-    
+    for (SHModule* module in array) {
+        if(USER_TYPE == 1){
+            if([module->name caseInsensitiveCompare:@"assemble"] == NSOrderedSame){
+                module->type = @"main";
+                break;
+            }
+        }else if (USER_TYPE == 2){
+            if([module->name caseInsensitiveCompare:@"recommend"] == NSOrderedSame){
+                module->type = @"main";
+                break;
+            }
+        }
+    }
+
     for (SHModule* module in array) {
         if([module->type isEqualToString:@"main"]){
             [list addObject:module];
@@ -95,7 +98,7 @@
         item.tag = i;
         item.image = [UIImage imageNamed:module->icon];
         [listtab addObject:item];
-
+        
     }
     if(sublist.count > 0){
         UITabBarItem * item = [[UITabBarItem alloc]init];
@@ -107,7 +110,7 @@
     [tabbar setSelectedImageTintColor:[SHSkin.instance colorOfStyle:@"ColorNavigation"]];
     tabbar.items = listtab;
     tabbar.selectedItem = [tabbar.items objectAtIndex:0];
-
+    
     [self tabBar:tabbar didSelectItem:tabbar.selectedItem];
     order_num = [[[NSUserDefaults standardUserDefaults] valueForKey:@"order_num"] intValue];
     car_num = [[[NSUserDefaults standardUserDefaults] valueForKey:@"car_num"] intValue];
@@ -117,16 +120,29 @@
     if(car_num > 0){
         ((UITabBarItem*) [tabbar.items objectAtIndex:1]).badgeValue = [NSString stringWithFormat:@"%d",car_num];
     }
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageChanged:) name:@"newmessage" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_remain:) name:@"notification_remain" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderchage:) name:@"orderchage" object:nil];//消息通知
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newreport:) name:@"newreport" object:nil];//消息通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(carprofilechange:) name:@"carprofilechange" object:nil];//消息通知
+    [self performSelector:@selector(a) withObject:nil afterDelay:0.01];
+    //[self performSelector:@selector(loginSuc) afterNotification:NOTIFICATION_LOGIN_SUCCESSFUL];
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)notification:(NSObject*)sender
+- (void) a
 {
-    [self tabBar:tabbar didSelectItem:[tabbar.items objectAtIndex:0]];
-    tabbar.selectedItem = [tabbar.items objectAtIndex:0];
-    [self tabBar:tabbar didSelectItem:tabbar.selectedItem];
-}
+    [self performSelector:@selector(loginSuc) afterNotification:NOTIFICATION_LOGIN_SUCCESSFUL];
 
+}
 - (void)notification_remain:(NSNotification*)sender
 {
     if([sender.object isEqualToString:@"order"]){

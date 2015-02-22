@@ -15,7 +15,7 @@ static NSString*  token = @"";
 {
     // Override point for customization after application launch.
     [super application:application didFinishLaunchingWithOptions:launchOptions];
-    //[ShareSDK registerApp:@"api20"];
+    [ShareSDK registerApp:@"api20"];
   #ifdef DEBUG
     [SHTask pull:URL_HEADER newUrl:BATA_HEADER];
 #endif

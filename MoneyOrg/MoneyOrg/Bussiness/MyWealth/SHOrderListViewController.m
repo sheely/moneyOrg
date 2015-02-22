@@ -44,8 +44,8 @@
     NSDictionary * dic = [mList objectAtIndex:indexPath.row];
     SHOrderCell * cell = [[[NSBundle mainBundle]loadNibNamed:@"SHOrderCell" owner:nil options:nil]objectAtIndex:0];
     cell.labName.text =  [dic valueForKey:@"ProductName"];
-    cell.labMoney.text = [dic valueForKey:@"ApplyMoney"];
-    cell.labCommission.text = [dic valueForKey:@"Bonuses"];
+    cell.labMoney.text = [NSString stringWithFormat:@"金额:%@",[dic valueForKey:@"ApplyMoney"]];
+    cell.labCommission.text = [NSString stringWithFormat:@"反佣:%@",[dic valueForKey:@"Bonuses"]];
     switch ([[dic valueForKey:@"OrderStatus"] intValue]) {
         case 10:
             cell.labState.text = @"新生成";

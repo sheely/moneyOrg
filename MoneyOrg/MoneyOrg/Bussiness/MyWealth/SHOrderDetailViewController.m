@@ -22,6 +22,7 @@
     SHPostTaskM * p = [[SHPostTaskM alloc]init];
     p.URL = URL_FOR(@"GetOrderDetail");
     [p.postArgs setValue:[self.intent.args valueForKey:@"OrderID"] forKey:@"OrderID"];
+    [p.postArgs setValue:@"" forKey:@"OrderCode"];
     [p start:^(SHTask *t) {
 //        OrderID”:”订单主键”
 //        “OrderCode”:”订单代码”
@@ -45,6 +46,7 @@
         self.labOrderId.text = [t.result valueForKey:@"OrderCode"];
         self.labApplyFene.text = [t.result valueForKey:@"ApplyNum"];
         self.labApplyMoney.text = [t.result valueForKey:@"ApplyMoney"];
+        self.labOrderTime.text = [t.result valueForKey:@"CreateTime"];
         switch ([[t.result valueForKey:@"OrderStatus"] intValue]) {
             case 10:
                 self.labTradeState.text = @"新生成";

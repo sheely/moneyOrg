@@ -19,14 +19,14 @@
     self.title = @"我的财富";
     [self showWaitDialogForNetWork];
     SHPostTaskM * p = [[SHPostTaskM alloc]init];
-    p.URL = URL_FOR(@"GetOrderList");
-    [p.postArgs setValue:@"1" forKey:@"PageSize"];
-    [p.postArgs setValue:@"1" forKey:@"PageIndex"];
+    p.URL = URL_FOR(@"GetUserDetail");
     [p start:^(SHTask *t) {
-        self.labLevel.text = [t.result valueForKey:@"MyScore"];
-        self.labMoney.text = [t.result valueForKey:@"Earned"];
-        self.labMoney2.text = [t.result valueForKey:@"WillEarn"];
+        self.labLevel.text = [[t.result valueForKey:@"Score"] stringValue];
+        self.labMoney.text = [[t.result valueForKey:@"Earned"] stringValue];
+        self.labMoney2.text = [[t.result valueForKey:@"WillEarn"] stringValue];
+        self.labName.text = [t.result valueForKey:@"UserName"];
         [self.imgView setUrl:[t.result valueForKey:@"UserVPhoto"]];
+        
         [self dismissWaitDialog];
     } taskWillTry:nil taskDidFailed:^(SHTask *t) {
         [t.respinfo show];
@@ -53,5 +53,17 @@
 - (IBAction)btnOrderListOnTouch:(id)sender {
     SHIntent * i = [[SHIntent alloc]init:@"order_list" delegate:nil containner:self.navigationController];
     [[UIApplication sharedApplication]open:i];
+}
+
+- (IBAction)btnCusOnTouch:(id)sender {
+    SHIntent * i = [[SHIntent alloc]init:@"customer_list" delegate:nil containner:self.navigationController];
+    [[UIApplication sharedApplication]open:i];
+
+}
+
+- (IBAction)btnQualificationOnTouch:(id)sender {
+    SHIntent * i = [[SHIntent alloc]init:@"qualification_examination" delegate:nil containner:self.navigationController];
+    [[UIApplication sharedApplication]open:i];
+
 }
 @end

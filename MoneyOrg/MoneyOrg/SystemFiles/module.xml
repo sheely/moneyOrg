@@ -18,18 +18,26 @@
     />
 
     <module
-    name="recommend"
+    name="assemble"
     target="SHMyAssembleViewController"
-    type = "main"
+    type = "--"
     icon = "ic_recommend@2x.png"
     title = "我的组合"
     />
+    <module
+    name="recommend"
+    target="SHMyAssembleViewController"
+    type = "--"
+    icon = "ic_combination@2x.png"
+    title = "我的推荐"
+    />
+
     <module
     name="create_assemble"
     target="SHCreateAssembleViewController"
     type = "--"
     icon = ""
-    title = "我的组合"
+    title = "创建组合"
     />
     
     <module
@@ -39,14 +47,7 @@
     icon = "ic_money@2x.png"
     title = "我的财富"
     />
-    <module
-    name="mainpage"
-    target="SHMainPageViewController"
-    type = "--"
-    icon = "navi_home.png"
-    title = "首页"
-    />
-    
+ 
     <module
     name="register"
     target="SHRegViewController"
@@ -76,5 +77,35 @@
     icon = "navi_home.png"
     title = "订单详情"
     />
+    <module
+    name="customer_list"
+    target="MyCustomerListViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "订单详情"
+    />
+    <module
+    name="customer_add"
+    target="SHAddCustomerViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "订单详情"
+    />
+    <module
+    name="order_create"
+    target="SHCreateOrderViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "订单创建"
+    />
+    
+    <module
+    name="qualification_examination"
+    target="SHQualificationExaminationViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "订单创建"
+    />
+    
 
    </root>

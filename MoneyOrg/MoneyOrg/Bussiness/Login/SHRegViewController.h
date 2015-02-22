@@ -9,5 +9,10 @@
 #import "SHViewController.h"
 
 @interface SHRegViewController : SHViewController
+- (IBAction)btnValidOnTouch:(id)sender;
+- (IBAction)btnRegistOnTouch:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UITextField *txtValidCode;
+@property (weak, nonatomic) IBOutlet UITextField *txtName;
 
 @end

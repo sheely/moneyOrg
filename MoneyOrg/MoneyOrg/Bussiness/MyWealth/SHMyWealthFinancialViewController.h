@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labMoney;
 @property (weak, nonatomic) IBOutlet UILabel *labMoney2;
 - (IBAction)btnOrderListOnTouch:(id)sender;
+- (IBAction)btnCusOnTouch:(id)sender;
+- (IBAction)btnQualificationOnTouch:(id)sender;
 
 @end

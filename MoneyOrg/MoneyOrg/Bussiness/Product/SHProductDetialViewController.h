@@ -10,5 +10,9 @@
 
 @interface SHProductDetialViewController : SHViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIButton *btnShare;
+@property (weak, nonatomic) IBOutlet UIButton *btnTuijian;
+- (IBAction)btnShareOnTouch:(id)sender;
+- (IBAction)btnTuijianOnTouch:(id)sender;
 
 @end
