@@ -26,7 +26,7 @@
     />
     <module
     name="recommend"
-    target="SHMyAssembleViewController"
+    target="SHRecommendViewController"
     type = "--"
     icon = "ic_combination@2x.png"
     title = "我的推荐"
@@ -102,6 +102,13 @@
     <module
     name="qualification_examination"
     target="SHQualificationExaminationViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "订单创建"
+    />
+    <module
+    name="question"
+    target="SHQuestionnairesurveyViewController"
     type = "--"
     icon = "navi_home.png"
     title = "订单创建"

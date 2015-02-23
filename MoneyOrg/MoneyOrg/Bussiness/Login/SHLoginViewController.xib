@@ -79,6 +79,9 @@
                     <state key="normal" title="理财师注册">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnManageMoneyOnTouch:" destination="-1" eventType="touchUpInside" id="jDn-Fb-yRP"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iKh-NJ-rWG">
                     <rect key="frame" x="189" y="516" width="75" height="30"/>

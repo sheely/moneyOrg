@@ -46,6 +46,8 @@
 
 - (IBAction)btnInvestorOnTouch:(id)sender {
     SHIntent * i = [[SHIntent alloc]init:@"register" delegate:nil containner:self.navigationController];
+    [i.args setValue:@"2" forKey:@"type"];
+
     [[UIApplication sharedApplication]open:i];
 }
 
@@ -70,5 +72,10 @@
 
     }];
     
+}
+- (IBAction)btnManageMoneyOnTouch:(id)sender {
+    SHIntent * i = [[SHIntent alloc]init:@"register" delegate:nil containner:self.navigationController];
+    [i.args setValue:@"1" forKey:@"type"];
+    [[UIApplication sharedApplication]open:i];
 }
 @end

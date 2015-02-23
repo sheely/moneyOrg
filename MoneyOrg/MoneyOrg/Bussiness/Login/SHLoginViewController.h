@@ -13,5 +13,6 @@
 - (IBAction)btnSumbitOnTouch:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtLogin;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+- (IBAction)btnManageMoneyOnTouch:(id)sender;
 
 @end

@@ -292,6 +292,10 @@
 		9EDD10721A9880F10073F3C2 /* SHQualificationExaminationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD10701A9880F10073F3C2 /* SHQualificationExaminationViewController.m */; };
 		9EDD10731A9880F10073F3C2 /* SHQualificationExaminationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD10711A9880F10073F3C2 /* SHQualificationExaminationViewController.xib */; };
 		9EDD10771A9A1B7E0073F3C2 /* ic_combination@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD10761A9A1B7E0073F3C2 /* ic_combination@2x.png */; };
+		9EDD107C1A9A4CA40073F3C2 /* SHRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD107A1A9A4CA40073F3C2 /* SHRecommendViewController.m */; };
+		9EDD107D1A9A4CA40073F3C2 /* SHRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD107B1A9A4CA40073F3C2 /* SHRecommendViewController.xib */; };
+		9EDD10811A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD107F1A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.m */; };
+		9EDD10821A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD10801A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -735,6 +739,12 @@
 		9EDD10701A9880F10073F3C2 /* SHQualificationExaminationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHQualificationExaminationViewController.m; sourceTree = "<group>"; };
 		9EDD10711A9880F10073F3C2 /* SHQualificationExaminationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHQualificationExaminationViewController.xib; sourceTree = "<group>"; };
 		9EDD10761A9A1B7E0073F3C2 /* ic_combination@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_combination@2x.png"; sourceTree = "<group>"; };
+		9EDD10791A9A4CA40073F3C2 /* SHRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRecommendViewController.h; sourceTree = "<group>"; };
+		9EDD107A1A9A4CA40073F3C2 /* SHRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRecommendViewController.m; sourceTree = "<group>"; };
+		9EDD107B1A9A4CA40073F3C2 /* SHRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHRecommendViewController.xib; sourceTree = "<group>"; };
+		9EDD107E1A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHQuestionnairesurveyViewController.h; sourceTree = "<group>"; };
+		9EDD107F1A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHQuestionnairesurveyViewController.m; sourceTree = "<group>"; };
+		9EDD10801A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHQuestionnairesurveyViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -783,6 +793,7 @@
 		9E03DB831A6B4F3E0034D632 /* Bussiness */ = {
 			isa = PBXGroup;
 			children = (
+				9EDD10781A9A4C650073F3C2 /* Recommend */,
 				9E0EFB101A85E678001373F9 /* MyAssemble */,
 				9E30AB4C1A7D550D00A7812F /* MyWealth */,
 				9E03DBB51A755C260034D632 /* Product */,
@@ -796,6 +807,9 @@
 			isa = PBXGroup;
 			children = (
 				9E03DB931A6BBC7E0034D632 /* ic_button_dis.png */,
+				9EDD107E1A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.h */,
+				9EDD107F1A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.m */,
+				9EDD10801A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib */,
 				9E03DB941A6BBC7E0034D632 /* ic_button_sel.png */,
 				9E03DB951A6BBC7E0034D632 /* ic_button.png */,
 				9E03DB8F1A6BBA4B0034D632 /* ic_lock.png */,
@@ -1671,6 +1685,17 @@
 			path = extra;
 			sourceTree = "<group>";
 		};
+		9EDD10781A9A4C650073F3C2 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				9EDD10791A9A4CA40073F3C2 /* SHRecommendViewController.h */,
+				9EDD107A1A9A4CA40073F3C2 /* SHRecommendViewController.m */,
+				9EDD107B1A9A4CA40073F3C2 /* SHRecommendViewController.xib */,
+			);
+			name = Recommend;
+			path = Remember;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1755,6 +1780,7 @@
 			files = (
 				9E3BD30E1A6815BF00AED2A9 /* SHWebViewController.xib in Resources */,
 				9E03DBB11A74F7080034D632 /* ic_input_box.png in Resources */,
+				9EDD107D1A9A4CA40073F3C2 /* SHRecommendViewController.xib in Resources */,
 				9E3BD2991A6815BF00AED2A9 /* DSLCalendarMonthSelectorView.xib in Resources */,
 				9E3BD2B71A6815BF00AED2A9 /* icon_stop_com@2x.png in Resources */,
 				9E3BD2FF1A6815BF00AED2A9 /* SHTableViewGeneralCell.xib in Resources */,
@@ -1838,6 +1864,7 @@
 				9E0EFB331A889F52001373F9 /* SHProductAssembleView.xib in Resources */,
 				9E3BD2A11A6815BF00AED2A9 /* DSLCalendarDayCallout.png in Resources */,
 				9E3BD2B31A6815BF00AED2A9 /* whiteArrow@2x.png in Resources */,
+				9EDD10821A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib in Resources */,
 				9E3BD2A51A6815BF00AED2A9 /* DSLCalendarDaySelection-middle.png in Resources */,
 				9E3BD31A1A6815C000AED2A9 /* status-bar-progress@2x.png in Resources */,
 				9E03DB891A6B4F620034D632 /* SHLoginViewController.xib in Resources */,
@@ -1961,6 +1988,7 @@
 				9E3BD2E41A6815BF00AED2A9 /* SDWebImageManager.m in Sources */,
 				9E3BD31E1A6815C000AED2A9 /* SHTableHorizontalView.m in Sources */,
 				9E3BD2DF1A6815BF00AED2A9 /* SDWebImageCompat.m in Sources */,
+				9EDD107C1A9A4CA40073F3C2 /* SHRecommendViewController.m in Sources */,
 				9E3BD2BE1A6815BF00AED2A9 /* PCLineChartView.m in Sources */,
 				9E3BD32A1A6815C000AED2A9 /* CommandFactory.m in Sources */,
 				9E03DB881A6B4F620034D632 /* SHLoginViewController.m in Sources */,
@@ -2001,6 +2029,7 @@
 				9E0EFB371A890632001373F9 /* MyCustomerListViewController.m in Sources */,
 				9E3BD30F1A6815BF00AED2A9 /* SHImageViewController.m in Sources */,
 				9E0EFB601A8E575A001373F9 /* ChineseString.m in Sources */,
+				9EDD10811A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.m in Sources */,
 				9E3BD2FE1A6815BF00AED2A9 /* SHTableViewGeneralCell.m in Sources */,
 				9E3BD2871A6815BF00AED2A9 /* MainViewController.m in Sources */,
 				9E30AB421A7C877700A7812F /* SHProductCell.m in Sources */,

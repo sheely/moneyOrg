@@ -161,6 +161,34 @@
     Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
     if (messageClass != nil) {
         // Check whether the current device is configured for sending SMS messages
+        
+        if(mListSelecteds.count ==0){
+            [self showAlertDialog:@"需要选择投资者"];
+            return;
+        }
+        SHPostTaskM * post = [[SHPostTaskM alloc ]init ];
+        post.URL = URL_FOR(@"RecommendProduct");
+        if ([type caseInsensitiveCompare:@"2"] == NSOrderedSame){
+            [post.postArgs setValue:@"1" forKey:@"RecommendType"];
+            [post.postArgs setValue:[self.intent.args valueForKey:@"product_id"] forKey:@"RecommendObjPKID"];
+ 
+        }else{
+            [post.postArgs setValue:@"2" forKey:@"RecommendType"];
+            [post.postArgs setValue:[self.intent.args valueForKey:@"group_id"] forKey:@"RecommendObjPKID"];
+
+        }
+        NSMutableString * msgstr = [[NSMutableString alloc]init];
+        for (NSString *phone in mListSelecteds) {
+            [msgstr appendFormat:@"%@,",phone];
+            
+        }
+        [post.postArgs setValue:msgstr forKey:@"InvestorIDs"];
+        [post start:^(SHTask * t) {
+            
+        } taskWillTry:nil taskDidFailed:^(SHTask *t) {
+            
+        }];
+        
         if ([messageClass canSendText]) {
             [self displaySMSComposerSheet];
         }
@@ -203,8 +231,9 @@
             
         case MessageComposeResultSent:
             //LOG_EXPR(@"Result: SMS sent");
-        {SHPostTaskM * post = [[SHPostTaskM alloc ]init ];
-            post.URL = URL_FOR(@"SendRecommndMsg");
+        {
+            
+            
         }
             break;
         case MessageComposeResultFailed:
