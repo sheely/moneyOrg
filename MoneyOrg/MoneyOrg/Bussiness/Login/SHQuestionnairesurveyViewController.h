@@ -9,5 +9,13 @@
 #import "SHViewController.h"
 
 @interface SHQuestionnairesurveyViewController : SHViewController
+@property (weak, nonatomic) IBOutlet UITextField *txtName;
+@property (weak, nonatomic) IBOutlet UITextField *txtMoney;
+- (IBAction)btnAgeOnTouch:(id)sender;
+- (IBAction)btnMoneyOnTouch:(id)sender;
+- (IBAction)btnYearOnTouch:(id)sender;
+- (IBAction)btnDangerOnTouch:(id)sender;
+- (IBAction)btnInComeOnTouch:(id)sender;
+- (IBAction)btnTypeOnTouch:(id)sender;
 
 @end

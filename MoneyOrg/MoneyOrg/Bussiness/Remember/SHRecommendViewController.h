@@ -8,6 +8,7 @@
 
 #import "SHViewController.h"
 
-@interface SHRecommendViewController : SHViewController
+@interface SHRecommendViewController : SHViewController<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

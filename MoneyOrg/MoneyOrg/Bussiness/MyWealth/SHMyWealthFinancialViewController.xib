@@ -157,6 +157,9 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_list_in.png" translatesAutoresizingMaskIntoConstraints="NO" id="1W5-WO-FR6">
                     <rect key="frame" x="294" y="126" width="14" height="14"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_list_in.png" translatesAutoresizingMaskIntoConstraints="NO" id="udK-LG-z5S">
+                    <rect key="frame" x="294" y="180" width="14" height="14"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

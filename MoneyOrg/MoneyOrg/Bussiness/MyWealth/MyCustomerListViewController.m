@@ -246,6 +246,16 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(mList.count == 0){
+        return;
+    }
+    SHIntent * intent = [[SHIntent alloc]init:@"user_detail" delegate:nil containner:self.navigationController];
+    [intent.args setValue:[mList objectAtIndex:indexPath.row] forKey:@"user_info"];
+    [[UIApplication sharedApplication]open:intent];
+}
+
 /*
 #pragma mark - Navigation
 

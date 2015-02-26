@@ -18,7 +18,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    CGRect rect = [[UIScreen mainScreen]bounds];
+    rect.size.height -= 50;
+    self.navigationController.view.frame =rect;
+    
+}
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    CGRect rect = [[UIScreen mainScreen]bounds];
+    self.navigationController.view.frame =rect;
+    [super viewWillDisappear:animated];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

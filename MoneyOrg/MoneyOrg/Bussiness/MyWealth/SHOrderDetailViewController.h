@@ -8,7 +8,7 @@
 
 #import "SHViewController.h"
 
-@interface SHOrderDetailViewController : SHViewController
+@interface SHOrderDetailViewController : SHViewController<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labLicaiId;
 @property (weak, nonatomic) IBOutlet UILabel *labKehuId;
 @property (weak, nonatomic) IBOutlet UILabel *labOrderId;
@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labTradeType;
 @property (weak, nonatomic) IBOutlet UILabel *labApplyFene;
 @property (weak, nonatomic) IBOutlet UILabel *labApplyMoney;
-@property (weak, nonatomic) IBOutlet UILabel *labOrderDay;
 @property (weak, nonatomic) IBOutlet UILabel *labOrderTime;
 @property (weak, nonatomic) IBOutlet UILabel *labTradeState;
 

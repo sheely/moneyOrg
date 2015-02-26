@@ -7,12 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SHQuestionnairesurveyViewController">
             <connections>
+                <outlet property="txtMoney" destination="1lo-Ar-8jA" id="x7x-pG-oqt"/>
+                <outlet property="txtName" destination="VTv-9y-Bn9" id="ZOw-8K-2d1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIScrollView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="1023"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nq3-5D-xXB">
@@ -42,7 +44,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="userstyle" value="labmiddark"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2G-GP-zId">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2G-GP-zId">
                     <rect key="frame" x="20" y="86" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="18-30岁" image="ic_radio_buttons.png">
@@ -51,8 +53,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnAgeOnTouch:" destination="-1" eventType="touchUpInside" id="Nx8-ll-eb2"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNT-Xw-FOH">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNT-Xw-FOH">
                     <rect key="frame" x="20" y="111" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="31-40岁" image="ic_radio_buttons.png">
@@ -61,8 +66,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnAgeOnTouch:" destination="-1" eventType="touchUpInside" id="52C-k8-E4d"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9u-jG-tF4">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9u-jG-tF4">
                     <rect key="frame" x="20" y="136" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="41-50岁" image="ic_radio_buttons.png">
@@ -71,8 +79,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnAgeOnTouch:" destination="-1" eventType="touchUpInside" id="fjK-Pt-MDw"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubP-bL-f8m">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubP-bL-f8m">
                     <rect key="frame" x="20" y="161" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="51-60岁" image="ic_radio_buttons.png">
@@ -81,8 +92,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnAgeOnTouch:" destination="-1" eventType="touchUpInside" id="IDW-aN-cUY"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RC-kd-og4">
+                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RC-kd-og4">
                     <rect key="frame" x="20" y="187" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="61岁以上" image="ic_radio_buttons.png">
@@ -91,6 +105,9 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnAgeOnTouch:" destination="-1" eventType="touchUpInside" id="pji-3c-RoV"/>
+                    </connections>
                 </button>
                 <view alpha="0.30000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xYC-Ah-t6V">
                     <rect key="frame" x="0.0" y="215" width="320" height="1"/>
@@ -109,7 +126,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="userstyle" value="labmiddark"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-YT-1IK">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-YT-1IK">
                     <rect key="frame" x="20" y="278" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="10-50万" image="ic_radio_buttons.png">
@@ -118,8 +135,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnMoneyOnTouch:" destination="-1" eventType="touchUpInside" id="pki-AR-NeM"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XW7-Xh-keY">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XW7-Xh-keY">
                     <rect key="frame" x="20" y="303" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="50-100万" image="ic_radio_buttons.png">
@@ -128,8 +148,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnMoneyOnTouch:" destination="-1" eventType="touchUpInside" id="v3V-Yc-29F"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDO-nU-M7t">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDO-nU-M7t">
                     <rect key="frame" x="20" y="329" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="100-500万" image="ic_radio_buttons.png">
@@ -138,8 +161,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnMoneyOnTouch:" destination="-1" eventType="touchUpInside" id="vU7-hS-NO4"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-2C-K65">
+                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-2C-K65">
                     <rect key="frame" x="20" y="357" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="500万以上" image="ic_radio_buttons.png">
@@ -148,6 +174,9 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnMoneyOnTouch:" destination="-1" eventType="touchUpInside" id="qhs-Pc-fwO"/>
+                    </connections>
                 </button>
                 <view alpha="0.30000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtC-5e-Hsl">
                     <rect key="frame" x="0.0" y="428" width="320" height="1"/>
@@ -180,7 +209,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="userstyle" value="labmiddark"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee2-7K-uet">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee2-7K-uet">
                     <rect key="frame" x="20" y="466" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="1年以下" image="ic_radio_buttons.png">
@@ -189,8 +218,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnYearOnTouch:" destination="-1" eventType="touchUpInside" id="qJ9-Oq-Sms"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7A-xY-5sr">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7A-xY-5sr">
                     <rect key="frame" x="20" y="491" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="1-2年" image="ic_radio_buttons.png">
@@ -199,8 +231,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnYearOnTouch:" destination="-1" eventType="touchUpInside" id="Vlm-Wu-cJE"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHw-3P-5a3">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHw-3P-5a3">
                     <rect key="frame" x="20" y="516" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="3-5年" image="ic_radio_buttons.png">
@@ -209,8 +244,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnYearOnTouch:" destination="-1" eventType="touchUpInside" id="HRn-Zi-PQg"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHF-NJ-OXE">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHF-NJ-OXE">
                     <rect key="frame" x="20" y="542" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="5年以上" image="ic_radio_buttons.png">
@@ -219,6 +257,9 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnYearOnTouch:" destination="-1" eventType="touchUpInside" id="zrf-4T-vIG"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="可承受的风险波动" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkX-WK-9Lb">
                     <rect key="frame" x="8" y="579" width="136" height="21"/>
@@ -229,7 +270,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="userstyle" value="labmiddark"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAO-Wv-IJd">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAO-Wv-IJd">
                     <rect key="frame" x="20" y="608" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="无风险" image="ic_radio_buttons.png">
@@ -238,8 +279,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnDangerOnTouch:" destination="-1" eventType="touchUpInside" id="arl-zC-gSb"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzn-hF-0vY">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzn-hF-0vY">
                     <rect key="frame" x="20" y="633" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="5%以内的本金损失" image="ic_radio_buttons.png">
@@ -248,8 +292,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnDangerOnTouch:" destination="-1" eventType="touchUpInside" id="XYf-Au-cNW"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELp-cj-SJ3">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELp-cj-SJ3">
                     <rect key="frame" x="20" y="658" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="10%以内的本金损失" image="ic_radio_buttons.png">
@@ -258,8 +305,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnDangerOnTouch:" destination="-1" eventType="touchUpInside" id="Pt6-Zf-oRn"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85L-5h-eiZ">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85L-5h-eiZ">
                     <rect key="frame" x="20" y="684" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="20%-50%的本金损失" image="ic_radio_buttons.png">
@@ -268,12 +318,15 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnDangerOnTouch:" destination="-1" eventType="touchUpInside" id="aWx-29-sF3"/>
+                    </connections>
                 </button>
                 <view alpha="0.30000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G5c-wJ-2m5">
                     <rect key="frame" x="0.0" y="738" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYa-ZP-uyn">
+                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYa-ZP-uyn">
                     <rect key="frame" x="20" y="710" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="50%以上的本金损失" image="ic_radio_buttons.png">
@@ -282,6 +335,9 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnDangerOnTouch:" destination="-1" eventType="touchUpInside" id="U2f-OL-VIx"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="期望受益" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8q-aV-dp9">
                     <rect key="frame" x="8" y="747" width="68" height="21"/>
@@ -292,7 +348,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="userstyle" value="labmiddark"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RM-7w-eYJ">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RM-7w-eYJ">
                     <rect key="frame" x="20" y="776" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="相当于银行定期存款回报" image="ic_radio_buttons.png">
@@ -301,8 +357,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnInComeOnTouch:" destination="-1" eventType="touchUpInside" id="2R8-IF-AKJ"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Niy-jD-HVx">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Niy-jD-HVx">
                     <rect key="frame" x="20" y="801" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="每年3%-5%的回报" image="ic_radio_buttons.png">
@@ -311,8 +370,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnInComeOnTouch:" destination="-1" eventType="touchUpInside" id="yHv-fe-nDw"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMJ-9H-7Vd">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMJ-9H-7Vd">
                     <rect key="frame" x="20" y="826" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="每年5%-10%的回报" image="ic_radio_buttons.png">
@@ -321,8 +383,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnInComeOnTouch:" destination="-1" eventType="touchUpInside" id="kuy-Rf-1Tf"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-0K-PUU">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-0K-PUU">
                     <rect key="frame" x="20" y="852" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="每年10%以上的回报" image="ic_radio_buttons.png">
@@ -331,6 +396,9 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnInComeOnTouch:" destination="-1" eventType="touchUpInside" id="UHb-ba-nZq"/>
+                    </connections>
                 </button>
                 <view alpha="0.30000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWY-pY-6pZ">
                     <rect key="frame" x="0.0" y="880" width="320" height="1"/>
@@ -345,7 +413,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="userstyle" value="labmiddark"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgk-t4-ukl">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgk-t4-ukl">
                     <rect key="frame" x="20" y="918" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="进取型" image="ic_radio_buttons.png">
@@ -354,8 +422,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnTypeOnTouch:" destination="-1" eventType="touchUpInside" id="gsQ-gu-RGN"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouf-tR-say">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouf-tR-say">
                     <rect key="frame" x="20" y="943" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="稳健型" image="ic_radio_buttons.png">
@@ -364,8 +435,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnTypeOnTouch:" destination="-1" eventType="touchUpInside" id="BrD-9u-to6"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5o-b9-alj">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5o-b9-alj">
                     <rect key="frame" x="20" y="968" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="保守型" image="ic_radio_buttons.png">
@@ -374,8 +448,11 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnTypeOnTouch:" destination="-1" eventType="touchUpInside" id="UWf-4W-g1d"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ff-r8-XUs">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ff-r8-XUs">
                     <rect key="frame" x="20" y="994" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="无风险型" image="ic_radio_buttons.png">
@@ -384,12 +461,15 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnTypeOnTouch:" destination="-1" eventType="touchUpInside" id="pGc-9j-IXf"/>
+                    </connections>
                 </button>
                 <view alpha="0.30000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ei1-MW-99G">
                     <rect key="frame" x="0.0" y="1022" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEQ-bh-EiG">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEQ-bh-EiG">
                     <rect key="frame" x="20" y="253" width="300" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="10万以下" image="ic_radio_buttons.png">
@@ -398,6 +478,9 @@
                     </state>
                     <state key="selected" image="ic_radio_buttons_sel.png"/>
                     <state key="highlighted" image="ic_radio_buttons_sel.png"/>
+                    <connections>
+                        <action selector="btnMoneyOnTouch:" destination="-1" eventType="touchUpInside" id="1og-5w-X1U"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

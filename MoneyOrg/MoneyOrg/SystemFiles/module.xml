@@ -21,14 +21,14 @@
     name="assemble"
     target="SHMyAssembleViewController"
     type = "--"
-    icon = "ic_recommend@2x.png"
+    icon = "ic_recommend.png"
     title = "我的组合"
     />
     <module
     name="recommend"
     target="SHRecommendViewController"
     type = "--"
-    icon = "ic_combination@2x.png"
+    icon = "ic_combination.png"
     title = "我的推荐"
     />
 
@@ -113,6 +113,19 @@
     icon = "navi_home.png"
     title = "订单创建"
     />
-    
+    <module
+    name="user_detail"
+    target="SHCustomInfoViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "用户详情"
+    />
+    <module
+    name="agreement"
+    target="SHAgreementViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "用户详情"
+    />
 
    </root>

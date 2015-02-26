@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-
+#import "SHGuildViewController.h"
 
 @interface MainViewController ()
 {
@@ -17,6 +17,7 @@
     NSMutableDictionary * mDictionary ;
     int order_num;
     int car_num;
+    SHGuildViewController * controller;
 }
 @end
 
@@ -133,16 +134,37 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newreport:) name:@"newreport" object:nil];//消息通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(carprofilechange:) name:@"carprofilechange" object:nil];//消息通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(guild_view_finished:) name:@"guild_view_finished" object:nil];//消息通知
+
+    
     [self performSelector:@selector(a) withObject:nil afterDelay:0.01];
+    
     //[self performSelector:@selector(loginSuc) afterNotification:NOTIFICATION_LOGIN_SUCCESSFUL];
     // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void) a
 {
-    [self performSelector:@selector(loginSuc) afterNotification:NOTIFICATION_LOGIN_SUCCESSFUL];
-
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:@"guild"] length]> 0 ) {
+        [self performSelector:@selector(loginSuc) afterNotification:NOTIFICATION_LOGIN_SUCCESSFUL];
+    }else{
+        controller = [[SHGuildViewController alloc] init];
+        [self.view addSubview:controller.view];
+    }
 }
+- (void)guild_view_finished:(NSNotification*)s
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        controller.view.alpha = 0;
+    } completion:^(BOOL finished) {
+        [controller.view removeFromSuperview];
+        controller = nil;
+    }];
+    [self performSelector:@selector(loginSuc) afterNotification:NOTIFICATION_LOGIN_SUCCESSFUL];
+}
+
+
 - (void)notification_remain:(NSNotification*)sender
 {
     if([sender.object isEqualToString:@"order"]){

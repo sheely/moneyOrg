@@ -89,6 +89,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSDictionary * dic = [[mListALL objectAtIndex:indexPath.section ] objectAtIndex:indexPath.row];
     SHCustomerAddCell_new * cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell.check_switch_new setOn:!cell.check_switch_new.on animated:YES];

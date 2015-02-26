@@ -17,27 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单详情";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"修改状态" target:self action:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"order_state_changed" object:nil];
+    [self loadData];
+    // Do any additional setup after loading the view from its nib.
+}
+
+
+- (void)loadData
+{
     [self showWaitDialogForNetWork];
     SHPostTaskM * p = [[SHPostTaskM alloc]init];
     p.URL = URL_FOR(@"GetOrderDetail");
     [p.postArgs setValue:[self.intent.args valueForKey:@"OrderID"] forKey:@"OrderID"];
     [p.postArgs setValue:@"" forKey:@"OrderCode"];
     [p start:^(SHTask *t) {
-//        OrderID”:”订单主键”
-//        “OrderCode”:”订单代码”
-//        “ProductID”:”产品ID”
-//        “ProductCode”:”产品代码”
-//        “ProductName”:”产品名称”
-//        “AccountantUserID”:”理财师ID（Guid）”
-//        “AccountantAccID”:”理财师ID（手机号）”
-//        “CustomerUserID”:”客户ID（Guid）”
-//        “CustomerAccID”:”客户ID（手机号）
-//        “TradeType”:”交易类型”
-//        “ApplyNum”:”申请份额”
-//        “ApplyMoney”:”申请金额”
-//        “Bonuses”:”返佣（理财师使用，计算出已赚取和预计赚取）”
-//        “OrderStatus”:”订单状态（10-新生成；20-待审核；30-已审核；40-已完成；90-已撤销）”
         
         self.labLicaiId.text = [t.result valueForKey:@"AccountantAccID"];
         self.labKehuId.text = [t.result valueForKey:@"CustomerAccID"];
@@ -49,15 +42,25 @@
         self.labOrderTime.text = [t.result valueForKey:@"CreateTime"];
         switch ([[t.result valueForKey:@"OrderStatus"] intValue]) {
             case 10:
-                self.labTradeState.text = @"新生成";
+            {
+                self.labTradeState.text = @"已提交";
                 
-                break;
+                if(!INVESTOR){
+                    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:
+                                                               [[UIBarButtonItem alloc]initWithTitle:@"撤销" target:self action:@selector(btnCancel:)],
+                                                               
+                                                               [[UIBarButtonItem alloc]initWithTitle:@"合同" target:self action:@selector(btnAgreement:)],nil];
+                }
+            }
+            break;
             case 20:
+            {
                 self.labTradeState.text = @"待审核";
-                
+                self.navigationItem.rightBarButtonItems  = nil;
+            }
                 break;
             case 30:
-                self.labTradeState.text = @"已审核";
+                self.labTradeState.text = @"待结算";
                 
                 break;
             case 40:
@@ -65,20 +68,56 @@
                 
                 break;
             case 50:
+                self.labTradeState.text = @"已驳回";
+                
+                break;
+            case 90:
                 self.labTradeState.text = @"已撤销";
                 
                 break;
+
                 
             default:
                 break;
         }
-
+        
         [self dismissWaitDialog];
     } taskWillTry:nil taskDidFailed:^(SHTask *t) {
         [self dismissWaitDialog];
         
     }];
-    // Do any additional setup after loading the view from its nib.
+}
+- (void)btnCancel:(UIButton*)b
+{
+    UIAlertView * a = [[UIAlertView alloc]initWithTitle:@"提示" message:@"确认撤销订单?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"撤销", nil];
+    [a show];
+
+   
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1){
+        SHPostTaskM * post = [[SHPostTaskM alloc]init];
+        post.URL = URL_FOR(@"ChangeOrderStatus");
+        [post.postArgs setValue:@"90" forKey:@"TargetOrderStatus"];
+        [post.postArgs setValue:@"" forKey:@"ContractPhoto"];
+        [post.postArgs setValue:[self.intent.args valueForKey:@"OrderID"] forKey:@"OrderID"];
+        [post start:^(SHTask * t) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"order_state_changed" object:nil];
+        } taskWillTry:nil taskDidFailed:^(SHTask * t) {
+            [t.respinfo show];
+        }];
+    }
+}
+
+- (void)btnAgreement:(UIButton*)b
+{
+    SHIntent * i = [[SHIntent alloc]init:@"agreement" delegate:nil containner:self.navigationController];
+    [i.args setValue:[self.intent.args valueForKey:@"OrderID"] forKey:@"OrderID"];
+
+    [[UIApplication sharedApplication]open:i];
 }
 
 - (void)didReceiveMemoryWarning {

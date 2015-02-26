@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E03DB7C1A6B47860034D632 /* SHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E03DB7B1A6B47860034D632 /* SHCore.framework */; };
 		9E03DB7E1A6B4AD80034D632 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E03DB7D1A6B4AD80034D632 /* libxml2.2.dylib */; };
 		9E03DB801A6B4ADE0034D632 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E03DB7F1A6B4ADE0034D632 /* libsqlite3.0.dylib */; };
 		9E03DB821A6B4AF80034D632 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E03DB811A6B4AF80034D632 /* SystemConfiguration.framework */; };
@@ -289,6 +288,21 @@
 		9E3BD3361A6815C000AED2A9 /* SHIntentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD2811A6815BF00AED2A9 /* SHIntentManager.m */; };
 		9E3BD3371A6815C000AED2A9 /* UIApplicationAddtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD2831A6815BF00AED2A9 /* UIApplicationAddtion.m */; };
 		9E3BD3381A6815C000AED2A9 /* UIViewAddtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD2851A6815BF00AED2A9 /* UIViewAddtion.m */; };
+		9E3DA0E81A9BACED00DFF530 /* SHRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3DA0E71A9BACED00DFF530 /* SHRecommendCell.m */; };
+		9E3DA0EA1A9BACF900DFF530 /* SHRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3DA0E91A9BACF900DFF530 /* SHRecommendCell.xib */; };
+		9E3DA0EC1A9C403100DFF530 /* SHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3DA0EB1A9C403100DFF530 /* SHCore.framework */; };
+		9E3DA0F51A9DE3D500DFF530 /* SHCustomInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3DA0F31A9DE3D500DFF530 /* SHCustomInfoViewController.m */; };
+		9E3DA0F61A9DE3D500DFF530 /* SHCustomInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3DA0F41A9DE3D500DFF530 /* SHCustomInfoViewController.xib */; };
+		9E3DA0F91A9DE4B200DFF530 /* SHCustonInfoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3DA0F81A9DE4B200DFF530 /* SHCustonInfoDetailCell.m */; };
+		9E3DA0FB1A9DE4C200DFF530 /* SHCustonInfoDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3DA0FA1A9DE4C200DFF530 /* SHCustonInfoDetailCell.xib */; };
+		9E3DA0FF1A9E24C400DFF530 /* SHAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3DA0FD1A9E24C400DFF530 /* SHAgreementViewController.m */; };
+		9E3DA1001A9E24C400DFF530 /* SHAgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3DA0FE1A9E24C400DFF530 /* SHAgreementViewController.xib */; };
+		9EC6F6971A9F62C000AEEEE1 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC6F6931A9F62C000AEEEE1 /* 1.png */; };
+		9EC6F6981A9F62C000AEEEE1 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC6F6941A9F62C000AEEEE1 /* 2.png */; };
+		9EC6F6991A9F62C000AEEEE1 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC6F6951A9F62C000AEEEE1 /* 3.png */; };
+		9EC6F69A1A9F62C000AEEEE1 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC6F6961A9F62C000AEEEE1 /* 4.png */; };
+		9EC6F69E1A9F6AB900AEEEE1 /* SHGuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6F69C1A9F6AB900AEEEE1 /* SHGuildViewController.m */; };
+		9EC6F69F1A9F6AB900AEEEE1 /* SHGuildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC6F69D1A9F6AB900AEEEE1 /* SHGuildViewController.xib */; };
 		9EDD10721A9880F10073F3C2 /* SHQualificationExaminationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD10701A9880F10073F3C2 /* SHQualificationExaminationViewController.m */; };
 		9EDD10731A9880F10073F3C2 /* SHQualificationExaminationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD10711A9880F10073F3C2 /* SHQualificationExaminationViewController.xib */; };
 		9EDD10771A9A1B7E0073F3C2 /* ic_combination@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD10761A9A1B7E0073F3C2 /* ic_combination@2x.png */; };
@@ -309,7 +323,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9E03DB7B1A6B47860034D632 /* SHCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SHCore.framework; sourceTree = "<group>"; };
 		9E03DB7D1A6B4AD80034D632 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		9E03DB7F1A6B4ADE0034D632 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		9E03DB811A6B4AF80034D632 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -735,6 +748,26 @@
 		9E3BD2831A6815BF00AED2A9 /* UIApplicationAddtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIApplicationAddtion.m; sourceTree = "<group>"; };
 		9E3BD2841A6815BF00AED2A9 /* UIViewAddtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAddtion.h; sourceTree = "<group>"; };
 		9E3BD2851A6815BF00AED2A9 /* UIViewAddtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAddtion.m; sourceTree = "<group>"; };
+		9E3DA0E61A9BACED00DFF530 /* SHRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRecommendCell.h; sourceTree = "<group>"; };
+		9E3DA0E71A9BACED00DFF530 /* SHRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRecommendCell.m; sourceTree = "<group>"; };
+		9E3DA0E91A9BACF900DFF530 /* SHRecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHRecommendCell.xib; sourceTree = "<group>"; };
+		9E3DA0EB1A9C403100DFF530 /* SHCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SHCore.framework; sourceTree = "<group>"; };
+		9E3DA0F21A9DE3D500DFF530 /* SHCustomInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCustomInfoViewController.h; sourceTree = "<group>"; };
+		9E3DA0F31A9DE3D500DFF530 /* SHCustomInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCustomInfoViewController.m; sourceTree = "<group>"; };
+		9E3DA0F41A9DE3D500DFF530 /* SHCustomInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHCustomInfoViewController.xib; sourceTree = "<group>"; };
+		9E3DA0F71A9DE4B200DFF530 /* SHCustonInfoDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCustonInfoDetailCell.h; sourceTree = "<group>"; };
+		9E3DA0F81A9DE4B200DFF530 /* SHCustonInfoDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCustonInfoDetailCell.m; sourceTree = "<group>"; };
+		9E3DA0FA1A9DE4C200DFF530 /* SHCustonInfoDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHCustonInfoDetailCell.xib; sourceTree = "<group>"; };
+		9E3DA0FC1A9E24C400DFF530 /* SHAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAgreementViewController.h; sourceTree = "<group>"; };
+		9E3DA0FD1A9E24C400DFF530 /* SHAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAgreementViewController.m; sourceTree = "<group>"; };
+		9E3DA0FE1A9E24C400DFF530 /* SHAgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAgreementViewController.xib; sourceTree = "<group>"; };
+		9EC6F6931A9F62C000AEEEE1 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		9EC6F6941A9F62C000AEEEE1 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		9EC6F6951A9F62C000AEEEE1 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		9EC6F6961A9F62C000AEEEE1 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		9EC6F69B1A9F6AB900AEEEE1 /* SHGuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHGuildViewController.h; sourceTree = "<group>"; };
+		9EC6F69C1A9F6AB900AEEEE1 /* SHGuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHGuildViewController.m; sourceTree = "<group>"; };
+		9EC6F69D1A9F6AB900AEEEE1 /* SHGuildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHGuildViewController.xib; sourceTree = "<group>"; };
 		9EDD106F1A9880F10073F3C2 /* SHQualificationExaminationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHQualificationExaminationViewController.h; sourceTree = "<group>"; };
 		9EDD10701A9880F10073F3C2 /* SHQualificationExaminationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHQualificationExaminationViewController.m; sourceTree = "<group>"; };
 		9EDD10711A9880F10073F3C2 /* SHQualificationExaminationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHQualificationExaminationViewController.xib; sourceTree = "<group>"; };
@@ -768,7 +801,7 @@
 				9E0EFB481A8B64D2001373F9 /* AddressBook.framework in Frameworks */,
 				9E0EFB941A8F0257001373F9 /* AGCommon.framework in Frameworks */,
 				9E03DB821A6B4AF80034D632 /* SystemConfiguration.framework in Frameworks */,
-				9E03DB7C1A6B47860034D632 /* SHCore.framework in Frameworks */,
+				9E3DA0EC1A9C403100DFF530 /* SHCore.framework in Frameworks */,
 				9E0EFBA01A8F0257001373F9 /* ShareSDKFlatShareViewUI.framework in Frameworks */,
 				9E03DB801A6B4ADE0034D632 /* libsqlite3.0.dylib in Frameworks */,
 				9E03DB7E1A6B4AD80034D632 /* libxml2.2.dylib in Frameworks */,
@@ -820,6 +853,9 @@
 				9E03DB991A6BCDD50034D632 /* SHRegViewController.h */,
 				9E03DB9A1A6BCDD50034D632 /* SHRegViewController.m */,
 				9E03DB9B1A6BCDD50034D632 /* SHRegViewController.xib */,
+				9EC6F69B1A9F6AB900AEEEE1 /* SHGuildViewController.h */,
+				9EC6F69C1A9F6AB900AEEEE1 /* SHGuildViewController.m */,
+				9EC6F69D1A9F6AB900AEEEE1 /* SHGuildViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -827,6 +863,10 @@
 		9E03DB9E1A74F6CF0034D632 /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				9EC6F6931A9F62C000AEEEE1 /* 1.png */,
+				9EC6F6941A9F62C000AEEEE1 /* 2.png */,
+				9EC6F6951A9F62C000AEEEE1 /* 3.png */,
+				9EC6F6961A9F62C000AEEEE1 /* 4.png */,
 				9EDD10761A9A1B7E0073F3C2 /* ic_combination@2x.png */,
 				9E0EFB231A87032E001373F9 /* ic_ok@2x.png */,
 				9E0EFB1F1A86171F001373F9 /* ic_radio_buttons_sel@2x.png */,
@@ -1027,6 +1067,15 @@
 				9EDD106F1A9880F10073F3C2 /* SHQualificationExaminationViewController.h */,
 				9EDD10701A9880F10073F3C2 /* SHQualificationExaminationViewController.m */,
 				9EDD10711A9880F10073F3C2 /* SHQualificationExaminationViewController.xib */,
+				9E3DA0F21A9DE3D500DFF530 /* SHCustomInfoViewController.h */,
+				9E3DA0F31A9DE3D500DFF530 /* SHCustomInfoViewController.m */,
+				9E3DA0F41A9DE3D500DFF530 /* SHCustomInfoViewController.xib */,
+				9E3DA0F71A9DE4B200DFF530 /* SHCustonInfoDetailCell.h */,
+				9E3DA0F81A9DE4B200DFF530 /* SHCustonInfoDetailCell.m */,
+				9E3DA0FA1A9DE4C200DFF530 /* SHCustonInfoDetailCell.xib */,
+				9E3DA0FC1A9E24C400DFF530 /* SHAgreementViewController.h */,
+				9E3DA0FD1A9E24C400DFF530 /* SHAgreementViewController.m */,
+				9E3DA0FE1A9E24C400DFF530 /* SHAgreementViewController.xib */,
 			);
 			path = MyWealth;
 			sourceTree = "<group>";
@@ -1066,7 +1115,6 @@
 		9E3BD1171A68107300AED2A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9E03DB7B1A6B47860034D632 /* SHCore.framework */,
 				9E03DB811A6B4AF80034D632 /* SystemConfiguration.framework */,
 				9E03DB7F1A6B4ADE0034D632 /* libsqlite3.0.dylib */,
 				9E03DB7D1A6B4AD80034D632 /* libxml2.2.dylib */,
@@ -1108,6 +1156,7 @@
 		9E3BD1461A6815BF00AED2A9 /* SystemFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9E3DA0EB1A9C403100DFF530 /* SHCore.framework */,
 				9E0EFBA21A8F0335001373F9 /* CoreTelephony.framework */,
 				9E0EFB6A1A8F00D0001373F9 /* libicucore.dylib */,
 				9E0EFB681A8F0023001373F9 /* libz.1.2.5.dylib */,
@@ -1691,6 +1740,9 @@
 				9EDD10791A9A4CA40073F3C2 /* SHRecommendViewController.h */,
 				9EDD107A1A9A4CA40073F3C2 /* SHRecommendViewController.m */,
 				9EDD107B1A9A4CA40073F3C2 /* SHRecommendViewController.xib */,
+				9E3DA0E61A9BACED00DFF530 /* SHRecommendCell.h */,
+				9E3DA0E71A9BACED00DFF530 /* SHRecommendCell.m */,
+				9E3DA0E91A9BACF900DFF530 /* SHRecommendCell.xib */,
 			);
 			name = Recommend;
 			path = Remember;
@@ -1781,6 +1833,7 @@
 				9E3BD30E1A6815BF00AED2A9 /* SHWebViewController.xib in Resources */,
 				9E03DBB11A74F7080034D632 /* ic_input_box.png in Resources */,
 				9EDD107D1A9A4CA40073F3C2 /* SHRecommendViewController.xib in Resources */,
+				9EC6F6991A9F62C000AEEEE1 /* 3.png in Resources */,
 				9E3BD2991A6815BF00AED2A9 /* DSLCalendarMonthSelectorView.xib in Resources */,
 				9E3BD2B71A6815BF00AED2A9 /* icon_stop_com@2x.png in Resources */,
 				9E3BD2FF1A6815BF00AED2A9 /* SHTableViewGeneralCell.xib in Resources */,
@@ -1790,11 +1843,13 @@
 				9E30AB5D1A7E801A00A7812F /* ic_list_in@2x.png in Resources */,
 				9E03DBAB1A74F7080034D632 /* ic_blue_button_nom.png in Resources */,
 				9E3BD2A61A6815BF00AED2A9 /* DSLCalendarDaySelection-middle@2x.png in Resources */,
+				9E3DA0F61A9DE3D500DFF530 /* SHCustomInfoViewController.xib in Resources */,
 				9E3BD2A91A6815BF00AED2A9 /* DSLCalendarDaySelection.png in Resources */,
 				9E3BD3101A6815BF00AED2A9 /* SHImageViewController.xib in Resources */,
 				9E3BD2ED1A6815BF00AED2A9 /* timeline_image_loading@2x.png in Resources */,
 				9E3BD2CA1A6815BF00AED2A9 /* SHSelectionViewController.xib in Resources */,
 				9E03DB911A6BBA4B0034D632 /* ic_lock.png in Resources */,
+				9E3DA0EA1A9BACF900DFF530 /* SHRecommendCell.xib in Resources */,
 				9E3BD2921A6815BF00AED2A9 /* SHContentViewController.xib in Resources */,
 				9EDD10731A9880F10073F3C2 /* SHQualificationExaminationViewController.xib in Resources */,
 				9E03DBBA1A755C470034D632 /* SHProductListViewController.xib in Resources */,
@@ -1802,7 +1857,9 @@
 				9E0EFB151A85E68D001373F9 /* SHMyAssembleViewController.xib in Resources */,
 				9E3BD30A1A6815BF00AED2A9 /* SHTableViewUnReadNumberCell.xib in Resources */,
 				9E3BD2D11A6815BF00AED2A9 /* showview_left_shade.png in Resources */,
+				9EC6F69A1A9F62C000AEEEE1 /* 4.png in Resources */,
 				9E2DACEB1A77DD3600D6EAF8 /* ic_money@2x.png in Resources */,
+				9EC6F69F1A9F6AB900AEEEE1 /* SHGuildViewController.xib in Resources */,
 				9E3BD2AA1A6815BF00AED2A9 /* DSLCalendarDaySelection@2x.png in Resources */,
 				9E30AB561A7D555B00A7812F /* SHMyWealthFinancialViewController.xib in Resources */,
 				9E3BD2D01A6815BF00AED2A9 /* SHNavigationShowViewController.xib in Resources */,
@@ -1818,6 +1875,7 @@
 				9E3BD2FB1A6815BF00AED2A9 /* SHNoneViewCell.xib in Resources */,
 				9E3BD2A41A6815BF00AED2A9 /* DSLCalendarDaySelection-left@2x.png in Resources */,
 				9E3BD2F91A6815BF00AED2A9 /* SHLoadingViewCell.xib in Resources */,
+				9EC6F6981A9F62C000AEEEE1 /* 2.png in Resources */,
 				9E0EFB221A86171F001373F9 /* ic_radio_buttons@2x.png in Resources */,
 				9E03DB921A6BBA4B0034D632 /* ic_user.png in Resources */,
 				9E3BD3211A6815C000AED2A9 /* SHTitleContentViewController.xib in Resources */,
@@ -1842,10 +1900,12 @@
 				9E0EFB291A87B78F001373F9 /* SHAssembleViewCell.xib in Resources */,
 				9E3BD3231A6815C000AED2A9 /* chart.html in Resources */,
 				9E3BD2BA1A6815BF00AED2A9 /* NaviBack@2x.png in Resources */,
+				9E3DA0FB1A9DE4C200DFF530 /* SHCustonInfoDetailCell.xib in Resources */,
 				9E3BD28A1A6815BF00AED2A9 /* font.xml in Resources */,
 				9E2DACEA1A77DD3600D6EAF8 /* ic_list@2x.png in Resources */,
 				9E0EFB461A8B5E0F001373F9 /* SHAddCustomerViewController.xib in Resources */,
 				9E3BD2B91A6815BF00AED2A9 /* NaviBack.png in Resources */,
+				9EC6F6971A9F62C000AEEEE1 /* 1.png in Resources */,
 				9E3BD2A71A6815BF00AED2A9 /* DSLCalendarDaySelection-right.png in Resources */,
 				9E0EFB951A8F0257001373F9 /* ShareSDKLocalizable.strings in Resources */,
 				9E3BD29D1A6815BF00AED2A9 /* DSLCalendar-nextMonth.png in Resources */,
@@ -1859,6 +1919,7 @@
 				9E3BD2F61A6815BF00AED2A9 /* ic_re_error.png in Resources */,
 				9E3BD2B61A6815BF00AED2A9 /* icon_play_com@2x.png in Resources */,
 				9E03DB9D1A6BCDD50034D632 /* SHRegViewController.xib in Resources */,
+				9E3DA1001A9E24C400DFF530 /* SHAgreementViewController.xib in Resources */,
 				9E30AB6E1A7E9CF500A7812F /* ic_list_down@2x.png in Resources */,
 				9E0EFB211A86171F001373F9 /* ic_radio_buttons_sel@2x.png in Resources */,
 				9E0EFB331A889F52001373F9 /* SHProductAssembleView.xib in Resources */,
@@ -1928,6 +1989,7 @@
 				9E3BD2B41A6815BF00AED2A9 /* EGORefreshTableHeaderView.m in Sources */,
 				9E3BD2EB1A6815BF00AED2A9 /* UIImageView+WebCache.m in Sources */,
 				9E3BD2AB1A6815BF00AED2A9 /* NSDate+DSLCalendarView.m in Sources */,
+				9EC6F69E1A9F6AB900AEEEE1 /* SHGuildViewController.m in Sources */,
 				9E3BD2CB1A6815BF00AED2A9 /* SHImageView.m in Sources */,
 				9E30AB6B1A7E90C200A7812F /* SHOrderDetailViewController.m in Sources */,
 				9E3BD3301A6815C000AED2A9 /* LogCMD.m in Sources */,
@@ -1943,6 +2005,7 @@
 				9E3BD2E01A6815BF00AED2A9 /* SDWebImageDecoder.m in Sources */,
 				9E3BD2DA1A6815BF00AED2A9 /* MJPhotoToolbar.m in Sources */,
 				9E3BD2E51A6815BF00AED2A9 /* SDWebImagePrefetcher.m in Sources */,
+				9E3DA0F91A9DE4B200DFF530 /* SHCustonInfoDetailCell.m in Sources */,
 				9E30AB501A7D553900A7812F /* SHMyWealthInvestorViewController.m in Sources */,
 				9E3BD2DC1A6815BF00AED2A9 /* MKAnnotationView+WebCache.m in Sources */,
 				9E3BD2E31A6815BF00AED2A9 /* SDWebImageManager+MJ.m in Sources */,
@@ -1991,6 +2054,7 @@
 				9EDD107C1A9A4CA40073F3C2 /* SHRecommendViewController.m in Sources */,
 				9E3BD2BE1A6815BF00AED2A9 /* PCLineChartView.m in Sources */,
 				9E3BD32A1A6815C000AED2A9 /* CommandFactory.m in Sources */,
+				9E3DA0F51A9DE3D500DFF530 /* SHCustomInfoViewController.m in Sources */,
 				9E03DB881A6B4F620034D632 /* SHLoginViewController.m in Sources */,
 				9E3BD3021A6815BF00AED2A9 /* SHTableViewTitleContentBottomCell.m in Sources */,
 				9E30AB5A1A7E22EE00A7812F /* SHProductDetialViewController.m in Sources */,
@@ -2016,6 +2080,7 @@
 				9E3BD32C1A6815C000AED2A9 /* DebugView.m in Sources */,
 				9E3BD3201A6815C000AED2A9 /* SHTitleContentViewController.m in Sources */,
 				9E3BD2D51A6815BF00AED2A9 /* MJPhoto.m in Sources */,
+				9E3DA0FF1A9E24C400DFF530 /* SHAgreementViewController.m in Sources */,
 				9E3BD31F1A6815C000AED2A9 /* UITableViewAddtion.m in Sources */,
 				9E3BD2CF1A6815BF00AED2A9 /* SHNavigationShowViewController.m in Sources */,
 				9E3BD2861A6815BF00AED2A9 /* AppDelegate.mm in Sources */,
@@ -2033,6 +2098,7 @@
 				9E3BD2FE1A6815BF00AED2A9 /* SHTableViewGeneralCell.m in Sources */,
 				9E3BD2871A6815BF00AED2A9 /* MainViewController.m in Sources */,
 				9E30AB421A7C877700A7812F /* SHProductCell.m in Sources */,
+				9E3DA0E81A9BACED00DFF530 /* SHRecommendCell.m in Sources */,
 				9E3BD2B51A6815BF00AED2A9 /* NTChartView.m in Sources */,
 				9E3BD2E21A6815BF00AED2A9 /* SDWebImageDownloaderOperation.m in Sources */,
 				9E3BD3251A6815C000AED2A9 /* NSMutableArray+convenience.m in Sources */,
@@ -2182,6 +2248,7 @@
 					"$(PROJECT_DIR)/MoneyOrg/SystemFiles/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/MoneyOrg/SystemFiles/ShareSDK",
 					"$(PROJECT_DIR)/MoneyOrg/SystemFiles/ShareSDK/UI",
+					"$(PROJECT_DIR)/MoneyOrg/SystemFiles",
 				);
 				GCC_PREFIX_HEADER = MoneyOrg/SystemFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = MoneyOrg/Info.plist;
@@ -2213,6 +2280,7 @@
 					"$(PROJECT_DIR)/MoneyOrg/SystemFiles/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/MoneyOrg/SystemFiles/ShareSDK",
 					"$(PROJECT_DIR)/MoneyOrg/SystemFiles/ShareSDK/UI",
+					"$(PROJECT_DIR)/MoneyOrg/SystemFiles",
 				);
 				GCC_PREFIX_HEADER = MoneyOrg/SystemFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = MoneyOrg/Info.plist;

@@ -23,7 +23,22 @@
 @end
 
 @implementation SHProductListViewController
+- (void)viewWillAppear:(BOOL)animated
+{
+    CGRect rect = [[UIScreen mainScreen]bounds];
+    rect.size.height -= 50;
+    self.navigationController.view.frame =rect;
+    
+}
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    CGRect rect = [[UIScreen mainScreen]bounds];
+    self.navigationController.view.frame =rect;
+    [super viewWillDisappear:animated];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"产品列表";
@@ -111,6 +126,7 @@
     cell.labNum.text = [dic valueForKey:@"ProductCode"];
     cell.labName.text = [dic valueForKey:@"ShortProductName"];
     cell.labCusNum.text = [[dic valueForKey:@"CustomerNum"] stringValue];
+    [cell alternate:indexPath];
     if([poductType caseInsensitiveCompare:@"1"]== NSOrderedSame){
         cell.btnOrder.hidden = YES;
     }else{
@@ -137,6 +153,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(mList.count == 0){
+        return ;
+    }
     NSDictionary * dic = [mList objectAtIndex:indexPath.row];
     SHIntent * intent = [[SHIntent alloc]init:@"prod_detail" delegate:nil containner:self.navigationController];
     [intent.args setValue:[dic valueForKey:@"ProductID"] forKey:@"id"];

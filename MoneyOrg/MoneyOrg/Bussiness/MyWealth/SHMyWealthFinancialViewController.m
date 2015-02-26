@@ -13,7 +13,22 @@
 @end
 
 @implementation SHMyWealthFinancialViewController
+- (void)viewWillAppear:(BOOL)animated
+{
+    CGRect rect = [[UIScreen mainScreen]bounds];
+    rect.size.height -= 50;
+    self.navigationController.view.frame =rect;
+    
+}
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    CGRect rect = [[UIScreen mainScreen]bounds];
+    self.navigationController.view.frame =rect;
+    [super viewWillDisappear:animated];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的财富";

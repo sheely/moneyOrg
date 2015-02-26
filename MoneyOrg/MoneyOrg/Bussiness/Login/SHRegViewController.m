@@ -41,6 +41,8 @@
 }
 
 - (IBAction)btnRegistOnTouch:(id)sender {
+    
+    
     SHIntent * intent = [[SHIntent alloc]init:@"question" delegate:nil containner:self.navigationController];
     [[UIApplication sharedApplication]open:intent];
 }

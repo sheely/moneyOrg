@@ -21,9 +21,13 @@
         self.title = [self.intent.args valueForKey:@"title"];
         [self showWaitDialogForNetWork];
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/ProductDetail.aspx?ProductID=%@",URL_HEADER_WEB_URL,[self.intent.args valueForKey:@"id"]]]]];
-        
     }
-      // Do any additional setup after loading the view from its nib.
+    //if (USER_TYPE == 1)
+    
+    if(!INVESTOR){
+        self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 40);
+    }
+// Do any additional setup after loading the view from its nib.
 }
 
 - (void)loadSkin

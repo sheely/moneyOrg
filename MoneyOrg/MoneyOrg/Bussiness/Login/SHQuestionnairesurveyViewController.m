@@ -10,6 +10,14 @@
 
 @interface SHQuestionnairesurveyViewController ()
 
+{
+    UIButton * btnAge;
+    UIButton * btnMoney;
+    UIButton * btnYear;
+    UIButton * btnDanger;
+    UIButton * btnInCome;
+    UIButton * btnType;
+}
 @end
 
 @implementation SHQuestionnairesurveyViewController
@@ -30,7 +38,20 @@
 
 - (void)btnOK:(UIButton*)b
 {
-    
+    SHPostTaskM * post = [[SHPostTaskM alloc]init];
+    post.URL = URL_FOR(@"RiskAssessment");
+    [post.postArgs setValue:[NSNumber numberWithInt:btnAge.tag ] forKey:@"UserAge"];
+    [post.postArgs setValue:[NSNumber numberWithInt:btnMoney.tag ] forKey:@"FamilyIncome"];
+    [post.postArgs setValue:self.txtMoney.text forKey:@"InvestmentMoney"];
+    [post.postArgs setValue:[NSNumber numberWithInt:btnYear.tag ] forKey:@"RecoveryCycle"];
+    [post.postArgs setValue:[NSNumber numberWithInt:btnDanger.tag ] forKey:@"RiskBearing"];
+    [post.postArgs setValue:[NSNumber numberWithInt:btnInCome.tag ] forKey:@"ExpectedProfit"];
+    [post.postArgs setValue:[NSNumber numberWithInt:btnType.tag ] forKey:@"InvestmentType"];
+    [post start:^(SHTask *t) {
+        [t.respinfo show];
+    } taskWillTry:nil taskDidFailed:^(SHTask *t) {
+        [t.respinfo show];
+    }];
 }
 
 /*
@@ -43,4 +64,41 @@
 }
 */
 
+- (IBAction)btnAgeOnTouch:(UIButton*)sender {
+    btnAge.selected = NO;
+    btnAge = sender;
+    sender.selected = YES;
+}
+
+
+
+- (IBAction)btnMoneyOnTouch:(UIButton*)sender {
+    btnMoney.selected = NO;
+    btnMoney = sender;
+    sender.selected = YES;
+}
+
+- (IBAction)btnYearOnTouch:(UIButton*)sender {
+    btnYear.selected = NO;
+    btnYear = sender;
+    sender.selected = YES;
+}
+
+- (IBAction)btnDangerOnTouch:(UIButton*)sender {
+    btnDanger.selected = NO;
+    btnDanger = sender;
+    sender.selected = YES;
+}
+
+- (IBAction)btnInComeOnTouch:(UIButton*)sender {
+    btnInCome.selected = NO;
+    btnInCome = sender;
+    sender.selected = YES;
+}
+
+- (IBAction)btnTypeOnTouch:(UIButton*)sender {
+    btnType.selected = NO;
+    btnType = sender;
+    sender.selected = YES;
+}
 @end

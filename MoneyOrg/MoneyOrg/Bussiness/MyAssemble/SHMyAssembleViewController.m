@@ -21,16 +21,29 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage: [SHSkin.instance image:@"ic_chat"] target:self action:@selector(btnAddAssmeble:)];
     // Do any additional setup after loading the view from its nib.
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    CGRect rect = [[UIScreen mainScreen]bounds];
+    rect.size.height -= 50;
+    self.navigationController.view.frame =rect;
+    [self loadNext];
 
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    CGRect rect = [[UIScreen mainScreen]bounds];
+    self.navigationController.view.frame =rect;
+    [super viewWillDisappear:animated];
+}
 - (void)btnAddAssmeble:(NSObject*)o
 {
     SHIntent * intent  = [[SHIntent alloc]init:@"create_assemble" delegate:nil containner:self.navigationController];
     [[UIApplication sharedApplication]open:intent];
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [self loadNext];
-}
+
 - (void)loadNext
 {
     [self showWaitDialogForNetWork];

@@ -9,7 +9,9 @@
 #import "SHOrderListViewController.h"
 
 @interface SHOrderListViewController ()
-
+{
+    BOOL isFirst;
+}
 @end
 
 @implementation SHOrderListViewController
@@ -17,9 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单列表";
-   
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadNext) name:@"order_state_changed" object:nil];
     // Do any additional setup after loading the view from its nib.
 }
+
+//-(void)viewDidAppear:(BOOL)animated
+//{
+//    [self loadNext];
+//}
 
 - (void)loadNext
 {
@@ -47,8 +54,9 @@
     cell.labMoney.text = [NSString stringWithFormat:@"金额:%@",[dic valueForKey:@"ApplyMoney"]];
     cell.labCommission.text = [NSString stringWithFormat:@"反佣:%@",[dic valueForKey:@"Bonuses"]];
     switch ([[dic valueForKey:@"OrderStatus"] intValue]) {
+//            10-已提交；20-待审核；30-待结算；40-已完成；90-已撤销；50-已驳回；
         case 10:
-            cell.labState.text = @"新生成";
+            cell.labState.text = @"已提交";
             
             break;
         case 20:
@@ -56,7 +64,7 @@
             
             break;
         case 30:
-            cell.labState.text = @"已审核";
+            cell.labState.text = @"待结算";
             
             break;
         case 40:
@@ -64,9 +72,14 @@
             
             break;
         case 50:
+            cell.labState.text = @"已驳回";
+            
+            break;
+        case 90:
             cell.labState.text = @"已撤销";
             
             break;
+
             
         default:
             break;
@@ -81,6 +94,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(mList.count == 0){
+        return ;
+    }
     NSDictionary * dic = [mList objectAtIndex:indexPath.row];
     SHIntent * i = [[SHIntent alloc]init:@"order_detail" delegate:nil containner:self.navigationController];
     [i.args setValue:[dic valueForKey:@"OrderID"] forKey:@"OrderID"];
