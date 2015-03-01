@@ -28,10 +28,17 @@
     [super viewDidLoad];
     self.title = @"职业资格审核";
     self.autoKeyboard = YES;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[ UIImage imageNamed:@"ic_ok"]  target:self action:@selector(btnOK:)];
-    
+   
+    if([[self.intent.args valueForKey:@"reg"] length] > 0){
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"下一步"  target:self action:@selector(btnOK:)];
+        
+    }else{
+         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[ UIImage imageNamed:@"ic_ok"]  target:self action:@selector(btnOK:)];
+    }
     // Do any additional setup after loading the view from its nib.
 }
+
+
 
 - (void)btnOK:(UIButton*)b
 {
@@ -40,13 +47,25 @@
     p.URL = URL_FOR(@"VerifyAccountant");
     [p.postArgs setValue:self.txtCardID.text forKey:@"AccountantSN"];
     if(self.imgView.image){
-        [p.postArgs setValue:[SHTools encode:UIImagePNGRepresentation(self.imgView.image)] forKey:@"CardPhoto"];
+        [p.postArgs setValue:[SHTools encode:UIImageJPEGRepresentation(self.imgView.image,0.5)] forKey:@"CardPhoto"];
     }
     [p start:^(SHTask * t) {
-        [t.respinfo show];
+        if([[self.intent.args valueForKey:@"reg"] length] > 0){
+            SHIntent * i = [[SHIntent alloc]init:@"sexorientation" delegate:nil containner:self.navigationController];
+            [[UIApplication sharedApplication]open:i];
+        }else{
+            [t.respinfo show];
+        }
+        //xcxx[t.respinfo show];
         [self dismissWaitDialog];
     } taskWillTry:nil taskDidFailed:^(SHTask * t) {
-        [t.respinfo show];
+        if([[self.intent.args valueForKey:@"reg"] length] > 0){
+            SHIntent * i = [[SHIntent alloc]init:@"sexorientation" delegate:nil containner:self.navigationController];
+            [[UIApplication sharedApplication]open:i];
+        }else{
+            [t.respinfo show];
+
+        }
         [self dismissWaitDialog];
 
     }];

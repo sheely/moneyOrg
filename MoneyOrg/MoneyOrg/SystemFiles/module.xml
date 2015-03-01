@@ -127,5 +127,28 @@
     icon = "navi_home.png"
     title = "用户详情"
     />
+    <module
+    name="sexorientation"
+    target="SHSexOrientationViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "取向"
+    />
+    <module
+    name="search_financial"
+    target="SHSearchFinancialViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "取向"
+    />
+    
+    <module
+    name="add_financial"
+    target="SHAddFinancialManagementViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "取向"
+    />
+
 
    </root>

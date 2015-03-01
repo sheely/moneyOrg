@@ -26,13 +26,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     mListSelecteds = [[NSMutableArray alloc]init];
-    self.title = @"推荐客户";
+    self.title = @"新增客户";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_ok"]  target:self action:@selector(btnOK:)];
     [self loadNext];
     mListSended = [[[NSUserDefaults standardUserDefaults]objectForKey:@"user_sended"] mutableCopy];
     if(mListSended == nil){
         mListSended = [[NSMutableArray alloc]init];
     }
+    self.autoKeyboard = YES;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -128,13 +129,6 @@
     MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
     picker.messageComposeDelegate = self;
     picker.recipients = mListSelecteds;
-        //    NSMutableString* absUrl = [[NSMutableString alloc] initWithString:web.request.URL.absoluteString];
-    //    [absUrl replaceOccurrencesOfString:@"http://i.aizheke.com" withString:@"http://m.aizheke.com"
-    //                               options:NSCaseInsensitiveSearch range:NSMakeRange(0, [absUrl length])];
-    //
-    //    picker.body=[NSString stringWithFormat:@"我在爱折客上看到：%@ 可能对你有用，推荐给你！link：%@"
-    //                 ,[web stringByEvaluatingJavaScriptFromString:@"document.title"]
-    //                 ,absUrl];
     picker.body= @"欢迎使用财富导航";
     [self showWaitDialog:@"请稍候" state:@"正在启动"];
     [self presentViewController:picker animated:YES completion:^{
@@ -269,4 +263,6 @@
  }
  */
 
+- (IBAction)txtCode:(id)sender {
+}
 @end

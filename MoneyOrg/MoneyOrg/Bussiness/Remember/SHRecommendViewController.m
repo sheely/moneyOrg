@@ -27,14 +27,9 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
     CGRect rect = [[UIScreen mainScreen]bounds];
     self.navigationController.view.frame =rect;
     [super viewWillDisappear:animated];
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.title = @"我的推荐";
     SHPostTaskM * post = [[SHPostTaskM alloc]init];
     
     post.URL = URL_FOR(@"MyRecommendList");
@@ -44,7 +39,12 @@
     } taskWillTry:nil taskDidFailed:^(SHTask *t) {
         
     }];
-    // Do any additional setup after loading the view from its nib.
+
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"我的推荐";
+        // Do any additional setup after loading the view from its nib.
 }
 
 - (float) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

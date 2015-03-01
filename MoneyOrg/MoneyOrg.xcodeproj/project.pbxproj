@@ -105,6 +105,10 @@
 		9E30AB6B1A7E90C200A7812F /* SHOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E30AB691A7E90C200A7812F /* SHOrderDetailViewController.m */; };
 		9E30AB6C1A7E90C200A7812F /* SHOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E30AB6A1A7E90C200A7812F /* SHOrderDetailViewController.xib */; };
 		9E30AB6E1A7E9CF500A7812F /* ic_list_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E30AB6D1A7E9CF500A7812F /* ic_list_down@2x.png */; };
+		9E3BB5A51AA2F1030065A02F /* SHSexOrientationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BB5A41AA2F1030065A02F /* SHSexOrientationViewController.m */; };
+		9E3BB5A71AA2F1110065A02F /* SHSexOrientationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3BB5A61AA2F1110065A02F /* SHSexOrientationViewController.xib */; };
+		9E3BB5AA1AA2F5A60065A02F /* SHSexOrientationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BB5A91AA2F5A60065A02F /* SHSexOrientationCell.m */; };
+		9E3BB5AC1AA2F5C30065A02F /* SHSexOrientationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3BB5AB1AA2F5C30065A02F /* SHSexOrientationCell.xib */; };
 		9E3BD11A1A68107300AED2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD1191A68107300AED2A9 /* main.m */; };
 		9E3BD1201A68107300AED2A9 /* MoneyOrg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD11E1A68107300AED2A9 /* MoneyOrg.xcdatamodeld */; };
 		9E3BD1281A68107300AED2A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3BD1271A68107300AED2A9 /* Images.xcassets */; };
@@ -310,6 +314,10 @@
 		9EDD107D1A9A4CA40073F3C2 /* SHRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD107B1A9A4CA40073F3C2 /* SHRecommendViewController.xib */; };
 		9EDD10811A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD107F1A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.m */; };
 		9EDD10821A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD10801A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib */; };
+		9EE572901AA31F290054BD37 /* SHAddFinancialManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE5728E1AA31F290054BD37 /* SHAddFinancialManagementViewController.m */; };
+		9EE572911AA31F290054BD37 /* SHAddFinancialManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EE5728F1AA31F290054BD37 /* SHAddFinancialManagementViewController.xib */; };
+		9EE572951AA324650054BD37 /* SHSearchFinancialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE572931AA324650054BD37 /* SHSearchFinancialViewController.m */; };
+		9EE572961AA324650054BD37 /* SHSearchFinancialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EE572941AA324650054BD37 /* SHSearchFinancialViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -451,6 +459,12 @@
 		9E30AB691A7E90C200A7812F /* SHOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHOrderDetailViewController.m; sourceTree = "<group>"; };
 		9E30AB6A1A7E90C200A7812F /* SHOrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHOrderDetailViewController.xib; sourceTree = "<group>"; };
 		9E30AB6D1A7E9CF500A7812F /* ic_list_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_list_down@2x.png"; sourceTree = "<group>"; };
+		9E3BB5A31AA2F1030065A02F /* SHSexOrientationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSexOrientationViewController.h; sourceTree = "<group>"; };
+		9E3BB5A41AA2F1030065A02F /* SHSexOrientationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSexOrientationViewController.m; sourceTree = "<group>"; };
+		9E3BB5A61AA2F1110065A02F /* SHSexOrientationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSexOrientationViewController.xib; sourceTree = "<group>"; };
+		9E3BB5A81AA2F5A60065A02F /* SHSexOrientationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSexOrientationCell.h; sourceTree = "<group>"; };
+		9E3BB5A91AA2F5A60065A02F /* SHSexOrientationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSexOrientationCell.m; sourceTree = "<group>"; };
+		9E3BB5AB1AA2F5C30065A02F /* SHSexOrientationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSexOrientationCell.xib; sourceTree = "<group>"; };
 		9E3BD1141A68107300AED2A9 /* MoneyOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3BD1181A68107300AED2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E3BD1191A68107300AED2A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -778,6 +792,12 @@
 		9EDD107E1A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHQuestionnairesurveyViewController.h; sourceTree = "<group>"; };
 		9EDD107F1A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHQuestionnairesurveyViewController.m; sourceTree = "<group>"; };
 		9EDD10801A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHQuestionnairesurveyViewController.xib; sourceTree = "<group>"; };
+		9EE5728D1AA31F290054BD37 /* SHAddFinancialManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAddFinancialManagementViewController.h; sourceTree = "<group>"; };
+		9EE5728E1AA31F290054BD37 /* SHAddFinancialManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAddFinancialManagementViewController.m; sourceTree = "<group>"; };
+		9EE5728F1AA31F290054BD37 /* SHAddFinancialManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAddFinancialManagementViewController.xib; sourceTree = "<group>"; };
+		9EE572921AA324650054BD37 /* SHSearchFinancialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSearchFinancialViewController.h; sourceTree = "<group>"; };
+		9EE572931AA324650054BD37 /* SHSearchFinancialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSearchFinancialViewController.m; sourceTree = "<group>"; };
+		9EE572941AA324650054BD37 /* SHSearchFinancialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSearchFinancialViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -856,6 +876,18 @@
 				9EC6F69B1A9F6AB900AEEEE1 /* SHGuildViewController.h */,
 				9EC6F69C1A9F6AB900AEEEE1 /* SHGuildViewController.m */,
 				9EC6F69D1A9F6AB900AEEEE1 /* SHGuildViewController.xib */,
+				9E3BB5A31AA2F1030065A02F /* SHSexOrientationViewController.h */,
+				9E3BB5A41AA2F1030065A02F /* SHSexOrientationViewController.m */,
+				9E3BB5A61AA2F1110065A02F /* SHSexOrientationViewController.xib */,
+				9E3BB5A81AA2F5A60065A02F /* SHSexOrientationCell.h */,
+				9E3BB5A91AA2F5A60065A02F /* SHSexOrientationCell.m */,
+				9E3BB5AB1AA2F5C30065A02F /* SHSexOrientationCell.xib */,
+				9EE5728D1AA31F290054BD37 /* SHAddFinancialManagementViewController.h */,
+				9EE5728E1AA31F290054BD37 /* SHAddFinancialManagementViewController.m */,
+				9EE5728F1AA31F290054BD37 /* SHAddFinancialManagementViewController.xib */,
+				9EE572921AA324650054BD37 /* SHSearchFinancialViewController.h */,
+				9EE572931AA324650054BD37 /* SHSearchFinancialViewController.m */,
+				9EE572941AA324650054BD37 /* SHSearchFinancialViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1862,6 +1894,7 @@
 				9EC6F69F1A9F6AB900AEEEE1 /* SHGuildViewController.xib in Resources */,
 				9E3BD2AA1A6815BF00AED2A9 /* DSLCalendarDaySelection@2x.png in Resources */,
 				9E30AB561A7D555B00A7812F /* SHMyWealthFinancialViewController.xib in Resources */,
+				9E3BB5AC1AA2F5C30065A02F /* SHSexOrientationCell.xib in Resources */,
 				9E3BD2D01A6815BF00AED2A9 /* SHNavigationShowViewController.xib in Resources */,
 				9E30AB441A7C878100A7812F /* SHProductCell.xib in Resources */,
 				9E3BD2F71A6815BF00AED2A9 /* ic_re_error@2x.png in Resources */,
@@ -1928,17 +1961,20 @@
 				9EDD10821A9A55E60073F3C2 /* SHQuestionnairesurveyViewController.xib in Resources */,
 				9E3BD2A51A6815BF00AED2A9 /* DSLCalendarDaySelection-middle.png in Resources */,
 				9E3BD31A1A6815C000AED2A9 /* status-bar-progress@2x.png in Resources */,
+				9EE572911AA31F290054BD37 /* SHAddFinancialManagementViewController.xib in Resources */,
 				9E03DB891A6B4F620034D632 /* SHLoginViewController.xib in Resources */,
 				9E03DBAC1A74F7080034D632 /* ic_blue_button_sel.png in Resources */,
 				9E30AB6C1A7E90C200A7812F /* SHOrderDetailViewController.xib in Resources */,
 				9E30AB481A7C993200A7812F /* SHProductTitleView.xib in Resources */,
 				9E03DBB01A74F7080034D632 /* ic_input_box_sel.png in Resources */,
+				9EE572961AA324650054BD37 /* SHSearchFinancialViewController.xib in Resources */,
 				9E3BD2CE1A6815BF00AED2A9 /* navigation_bar_bg.png in Resources */,
 				9E3BD3011A6815BF00AED2A9 /* SHTableViewSelectCell.xib in Resources */,
 				9E0EFB191A861432001373F9 /* ic_edit@2x.png in Resources */,
 				9E3BD3171A6815C000AED2A9 /* status-bar-pattern-default.jpg in Resources */,
 				9E3BD2B01A6815BF00AED2A9 /* grayArrow.png in Resources */,
 				9E3BD2881A6815BF00AED2A9 /* MainViewController.xib in Resources */,
+				9E3BB5A71AA2F1110065A02F /* SHSexOrientationViewController.xib in Resources */,
 				9E3BD2A31A6815BF00AED2A9 /* DSLCalendarDaySelection-left.png in Resources */,
 				9E3BD29F1A6815BF00AED2A9 /* DSLCalendar-previousMonth.png in Resources */,
 				9E03DBB21A74F7080034D632 /* ic_orange_button_dis.png in Resources */,
@@ -1999,6 +2035,7 @@
 				9E3BD30C1A6815BF00AED2A9 /* SHViewController.m in Sources */,
 				9E3BD3331A6815C000AED2A9 /* SHLogger.m in Sources */,
 				9E0EFB611A8E575A001373F9 /* pinyin.c in Sources */,
+				9E3BB5A51AA2F1030065A02F /* SHSexOrientationViewController.m in Sources */,
 				9E3BD2C51A6815BF00AED2A9 /* MMProgressHUDViewController.m in Sources */,
 				9E3BD32F1A6815C000AED2A9 /* IPConfigCMD.m in Sources */,
 				9E3BD2BD1A6815BF00AED2A9 /* PCHalfPieChart.m in Sources */,
@@ -2014,6 +2051,7 @@
 				9E3BD2D41A6815BF00AED2A9 /* MBProgressHUD.m in Sources */,
 				9E3BD32D1A6815C000AED2A9 /* GuidClear.m in Sources */,
 				9E3BD2971A6815BF00AED2A9 /* DSLCalendarDayView.m in Sources */,
+				9EE572901AA31F290054BD37 /* SHAddFinancialManagementViewController.m in Sources */,
 				9E3BD3341A6815C000AED2A9 /* NSObjectAddtion.m in Sources */,
 				9E3BD2C61A6815BF00AED2A9 /* MMProgressHUDWindow.m in Sources */,
 				9E3BD3111A6815BF00AED2A9 /* BWStatusBarOverlay.m in Sources */,
@@ -2031,6 +2069,7 @@
 				9E3BD29B1A6815BF00AED2A9 /* DSLCalendarRange.m in Sources */,
 				9E3BD3121A6815BF00AED2A9 /* JDStatusBarNotification.m in Sources */,
 				9E3BD3091A6815BF00AED2A9 /* SHTableViewUnReadNumberCell.m in Sources */,
+				9E3BB5AA1AA2F5A60065A02F /* SHSexOrientationCell.m in Sources */,
 				9E3BD3381A6815C000AED2A9 /* UIViewAddtion.m in Sources */,
 				9E0EFB311A889F46001373F9 /* SHProductAssembleView.m in Sources */,
 				9E3BD1201A68107300AED2A9 /* MoneyOrg.xcdatamodeld in Sources */,
@@ -2116,6 +2155,7 @@
 				9E3BD2F01A6815BF00AED2A9 /* SHPlayerView.m in Sources */,
 				9E30AB4B1A7C994700A7812F /* SHProductTitleView.m in Sources */,
 				9E3BD28F1A6815BF00AED2A9 /* SHCalendarViewController.m in Sources */,
+				9EE572951AA324650054BD37 /* SHSearchFinancialViewController.m in Sources */,
 				9E3BD30B1A6815BF00AED2A9 /* SHView.m in Sources */,
 				9E3BD2DE1A6815BF00AED2A9 /* SDImageCache.m in Sources */,
 				9E3BD2C11A6815BF00AED2A9 /* MMProgressHUD+Animations.m in Sources */,
@@ -2240,6 +2280,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoneyOrg",
@@ -2262,6 +2303,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
@@ -2272,6 +2314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoneyOrg",
@@ -2293,6 +2336,7 @@
 					"$(PROJECT_DIR)/MoneyOrg/SystemFiles/ShareSDK/Extend/WeChatSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;

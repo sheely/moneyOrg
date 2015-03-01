@@ -80,7 +80,7 @@
     [p.postArgs setValue:@"25" forKey:@"PageSize"];
     [p.postArgs setValue:@"1" forKey:@"PageIndex"];
     [p.postArgs setValue:@"Column1" forKey:@"OrderFiled"];
-    [p.postArgs setValue:@"1" forKey:@"OrderDirect"];
+    [p.postArgs setValue:@"0" forKey:@"OrderDirect"];
     //"UserID": "f1b98876-2222-48da-b295-02dd992b172a",
     //"SessionID": "9054f537-f46c-466a-a1b0-eefd99a6df71",
     [self showWaitDialogForNetWork];
@@ -127,7 +127,8 @@
     cell.labName.text = [dic valueForKey:@"ShortProductName"];
     cell.labCusNum.text = [[dic valueForKey:@"CustomerNum"] stringValue];
     [cell alternate:indexPath];
-    if([poductType caseInsensitiveCompare:@"1"]== NSOrderedSame){
+    
+    if([[[dic valueForKey:@"ProductType"] description] caseInsensitiveCompare:@"1"]== NSOrderedSame){
         cell.btnOrder.hidden = YES;
     }else{
         cell.btnOrder.tag = indexPath.row;
@@ -137,13 +138,24 @@
 }
 
 - (void)btnOrder:(UIButton *)b
-{
-    NSDictionary * dic = [mList objectAtIndex:b.tag];
-    SHIntent * i = [[SHIntent alloc]init:@"customer_list" delegate:nil containner:self.navigationController];
-    [i.args setValue:@"2" forKey:@"type"];
-    [i.args setValue:[dic valueForKey:@"ProductID"] forKey:@"product_id"];
-    [i.args setValue:[dic valueForKey:@"ShortProductName"] forKey:@"product_name"];
-    [[UIApplication sharedApplication]open:i];
+{        NSDictionary * dic = [mList objectAtIndex:b.tag];
+
+    if(INVESTOR){
+        SHIntent * i = [[SHIntent alloc]init:@"order_create" delegate:nil containner:self.navigationController];
+        [i.args setValue:  [[NSUserDefaults standardUserDefaults]valueForKey:@"User"] forKey:@"user"];
+        [i.args setValue: [dic valueForKey:@"ShortProductName"]forKey:@"product_name"];
+        [i.args setValue: [dic valueForKey:@"ProductID"] forKey:@"product_id"];
+        
+        [[UIApplication sharedApplication]open:i];
+        
+    }else{
+        
+        SHIntent * i = [[SHIntent alloc]init:@"customer_list" delegate:nil containner:self.navigationController];
+        [i.args setValue:@"2" forKey:@"type"];
+        [i.args setValue:[dic valueForKey:@"ProductID"] forKey:@"product_id"];
+        [i.args setValue:[dic valueForKey:@"ShortProductName"] forKey:@"product_name"];
+        [[UIApplication sharedApplication]open:i];
+    }
 }
 
 - (float) tableView:(UITableView *)tableView heightForGeneralRowAtIndexPath:(NSIndexPath *)indexPath

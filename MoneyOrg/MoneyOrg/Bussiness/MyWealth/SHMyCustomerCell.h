@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
 @property (weak, nonatomic) IBOutlet UIButton *btnOrder;
 @property (weak, nonatomic) IBOutlet UISwitch *switch_sms;
+@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 - (IBAction)btnOrderOnTouch:(id)sender;
 - (IBAction)btnDeleteOnTouch:(id)sender;
 

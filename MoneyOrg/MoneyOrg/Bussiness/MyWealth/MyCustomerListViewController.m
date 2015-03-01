@@ -107,7 +107,7 @@
     cell.labTitle.text = [dic valueForKey:@"UserName"];
     cell.labContent.text = [dic valueForKey:@"UserCode"];
     if([type caseInsensitiveCompare:@"1"] == NSOrderedSame){
-        cell.btnDelete.hidden = NO;
+        cell.btnDelete.hidden = YES;
     }else if([type caseInsensitiveCompare:@"2"] == NSOrderedSame){
         if(sms){
             cell.switch_sms.hidden = NO;
@@ -126,7 +126,7 @@
             [cell.switch_sms addTarget:self action:@selector(switch_sms:) forControlEvents:UIControlEventValueChanged];
 
         }else{
-            cell.btnDelete.hidden = NO;
+            cell.btnDelete.hidden = YES;
         }
     }
     return cell;

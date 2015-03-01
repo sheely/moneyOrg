@@ -66,7 +66,7 @@
 }
 
 - (IBAction)btn4OnTouch:(UIButton*)sender {
-    ProductType  = @"1";
+    ProductType  = @"4";
     sender.selected = YES;
     btnSelected.selected = NO;
     btnSelected = sender;
@@ -74,14 +74,6 @@
 
 }
 - (IBAction)btn3OnTouch:(UIButton*)sender {
-    ProductType  = @"2";
-    sender.selected = YES;
-    btnSelected.selected = NO;
-    btnSelected = sender;
-    [self loadNext];
-
-}
-- (IBAction)btn1onTouch:(UIButton*)sender {
     ProductType  = @"3";
     sender.selected = YES;
     btnSelected.selected = NO;
@@ -89,8 +81,16 @@
     [self loadNext];
 
 }
+- (IBAction)btn1onTouch:(UIButton*)sender {
+    ProductType  = @"1";
+    sender.selected = YES;
+    btnSelected.selected = NO;
+    btnSelected = sender;
+    [self loadNext];
+
+}
 - (IBAction)btn2OnTouch:(UIButton*)sender {
-    ProductType  = @"4";
+    ProductType  = @"2";
     sender.selected = YES;
     btnSelected.selected = NO;
     btnSelected = sender;

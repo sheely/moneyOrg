@@ -25,7 +25,10 @@
     self.imgView.layer.masksToBounds = YES;
     self.btnDelete.layer.cornerRadius = 5;
     self.btnOrder.layer.cornerRadius = 5;
+    self.btnAdd.layer.cornerRadius = 5;
 }
+
+
 
 - (IBAction)btnOrderOnTouch:(id)sender{
 }

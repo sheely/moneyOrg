@@ -48,7 +48,10 @@
     [post.postArgs setValue:[NSNumber numberWithInt:btnInCome.tag ] forKey:@"ExpectedProfit"];
     [post.postArgs setValue:[NSNumber numberWithInt:btnType.tag ] forKey:@"InvestmentType"];
     [post start:^(SHTask *t) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN_SUCCESSFUL object:nil];
+        
         [t.respinfo show];
+
     } taskWillTry:nil taskDidFailed:^(SHTask *t) {
         [t.respinfo show];
     }];

@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"登陆";
+    self.title = @"登录";//15900706082
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -62,6 +62,8 @@
         [self.txtPassword resignFirstResponder];
         [self.txtLogin resignFirstResponder];
         [[NSUserDefaults standardUserDefaults]setValue:[ t.result valueForKey:@"UserType"] forKey:@"UserType"];
+        [[NSUserDefaults standardUserDefaults]setValue:t.result forKey:@"User"];
+
         [self dismissWaitDialog];
            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN_SUCCESSFUL object:nil];
     } taskWillTry:^(SHTask *t) {
@@ -71,8 +73,8 @@
         [self dismissWaitDialog];
 
     }];
-    
 }
+
 - (IBAction)btnManageMoneyOnTouch:(id)sender {
     SHIntent * i = [[SHIntent alloc]init:@"register" delegate:nil containner:self.navigationController];
     [i.args setValue:@"1" forKey:@"type"];
