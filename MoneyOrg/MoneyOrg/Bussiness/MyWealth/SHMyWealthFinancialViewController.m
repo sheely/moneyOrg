@@ -32,11 +32,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的财富";
+    if(INVESTOR){
+        self.viewMoney.hidden = YES;
+        self.btnMoneyManager.hidden = NO;
+        self.imgArrowZhiye.hidden = YES;
+    }else{
+        self.labZhiye.hidden = NO;
+        self.labZhiyeState.hidden = NO;
+        self.viewMyCustomer.hidden = NO;
+    }
+    
     [self showWaitDialogForNetWork];
     SHPostTaskM * p = [[SHPostTaskM alloc]init];
     p.URL = URL_FOR(@"GetUserDetail");
     [p start:^(SHTask *t) {
-        self.labLevel.text = [[t.result valueForKey:@"Score"] stringValue];
+        
+        [self.btnMoneyManager setTitle:[ NSString stringWithFormat:@"我的理财师  :  %@",[t.result valueForKey:@"MyAccountants" ]] forState: UIControlStateNormal   ];
+        self.labZhiyeState.text = [[t.result valueForKey:@"HasConfirm"] boolValue]? @"[已认证]":@"[未认证]";
+        self.labLevel.text = [NSString stringWithFormat:@"等级:%d",[[t.result valueForKey:@"Score"] intValue]/100];
         self.labMoney.text = [[t.result valueForKey:@"Earned"] stringValue];
         self.labMoney2.text = [[t.result valueForKey:@"WillEarn"] stringValue];
         self.labName.text = [t.result valueForKey:@"UserName"];

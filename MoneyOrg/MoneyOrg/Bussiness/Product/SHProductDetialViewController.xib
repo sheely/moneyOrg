@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="btnShare" destination="GrT-1N-P2V" id="Tdn-s0-hV1"/>
                 <outlet property="btnTuijian" destination="Mdh-6r-FvN" id="xJG-Rm-v4p"/>
+                <outlet property="labCustomer" destination="CIS-sK-ZYK" id="cKN-L7-z7e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="vA8-hE-BHk" id="XqX-oC-JUi"/>
             </connections>
@@ -31,6 +32,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="userstyle" value="labminlight"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GrT-1N-P2V">
                     <rect key="frame" x="237" y="533" width="59" height="30"/>

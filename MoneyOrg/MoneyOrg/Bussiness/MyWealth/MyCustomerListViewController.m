@@ -36,11 +36,14 @@
     }else if ([type caseInsensitiveCompare:@"2"] == NSOrderedSame){
         self.title = [self.intent.args valueForKey:@"product_name"];
         if(sms){
-            self.title = [NSString stringWithFormat:@"%@-短信推荐",self.title];
+            self.title = [NSString stringWithFormat:@"%@",self.title];
         }
         
     }else if ([type caseInsensitiveCompare:@"3"] == NSOrderedSame){
-        self.title = @"组合匹配客户";
+        self.title = [self.intent.args valueForKey:@"group_name"];
+        if(sms){
+            self.title = [NSString stringWithFormat:@"%@",self.title];
+        }
     }
     if (sms) {
           self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage: [SHSkin.instance image:@"ic_ok"] target:self action:@selector(btnSendSMS:)];
@@ -214,7 +217,9 @@
     //    picker.body=[NSString stringWithFormat:@"我在爱折客上看到：%@ 可能对你有用，推荐给你！link：%@"
     //                 ,[web stringByEvaluatingJavaScriptFromString:@"document.title"]
     //                 ,absUrl];
-    picker.body= @"欢迎使用财富导航";
+    picker.body=  [NSString stringWithFormat: @"理财师【%@】正在使用“财富导航”，他推荐您关注此产品：【%@】产品摘要模版（同产品列表中各column）想查看产品详情并和认证理财师互动，请下载财富导航APP。http://www.baidu.com",
+                   [[[NSUserDefaults standardUserDefaults]valueForKey:@"User"] valueForKey:@"UserName"]
+                   ,self.title];
     [self showWaitDialog:@"请稍候" state:@"正在启动"];
     [self presentViewController:picker animated:YES completion:^{
         [self dismissWaitDialog];

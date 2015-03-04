@@ -18,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"登录";//15900706082
+    if(  [[NSUserDefaults standardUserDefaults] valueForKey:@"User"] ){
+        self.txtLogin.text = [[[NSUserDefaults standardUserDefaults] valueForKey:@"User"] valueForKey:@"AccountID"];
+    }
+    self.navigationItem.leftBarButtonItem = nil;
     // Do any additional setup after loading the view from its nib.
 }
 

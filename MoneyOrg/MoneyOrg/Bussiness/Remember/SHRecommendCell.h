@@ -9,5 +9,6 @@
 #import "SHTableViewCell.h"
 
 @interface SHRecommendCell : SHTableViewTitleContentCell
+@property (weak, nonatomic) IBOutlet UIButton *btnOrder;
 
 @end

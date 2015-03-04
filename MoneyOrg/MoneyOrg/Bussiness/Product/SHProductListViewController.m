@@ -54,11 +54,22 @@
         view.frame = CGRectMake(0, 0, 320, 44);
         self.title = @"组合明细";
         [self.view addSubview:view];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"推荐" target:self action:@selector(btnGroupTuijian:)];
     }
     titleview = [[[NSBundle mainBundle]loadNibNamed:@"SHProductTitleView" owner:nil options:nil]objectAtIndex:0];
     selectButton = self.btnT1;
 
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)btnGroupTuijian:(UIButton*) btn
+{
+    SHIntent * i = [[SHIntent alloc]init:@"customer_list" delegate:nil containner:self.navigationController];
+    [i.args setValue:@"3" forKey:@"type"];
+    [i.args setValue:GroupID forKey:@"group_id"];
+    [i.args setValue:[self.intent.args valueForKey:@"group_name"] forKey:@"group_name"];
+    [i.args setValue:@"true" forKey:@"sms"];
+    [[UIApplication sharedApplication]open:i];
 }
 
 - (void)loginSuc
@@ -134,6 +145,10 @@
         cell.btnOrder.tag = indexPath.row;
         [cell.btnOrder addTarget:self action:@selector(btnOrder:) forControlEvents:UIControlEventTouchUpInside];
     }
+    if(INVESTOR){
+        cell.labCusNum.hidden = YES;
+        cell.imgCusNum.hidden = YES;
+    }
     return cell;
 }
 
@@ -170,6 +185,7 @@
     }
     NSDictionary * dic = [mList objectAtIndex:indexPath.row];
     SHIntent * intent = [[SHIntent alloc]init:@"prod_detail" delegate:nil containner:self.navigationController];
+    [intent.args setValue:dic forKey:@"dic"];
     [intent.args setValue:[dic valueForKey:@"ProductID"] forKey:@"id"];
     [intent.args setValue:[dic valueForKey:@"ProductName"] forKey:@"title"];
     [[UIApplication sharedApplication]open:intent];

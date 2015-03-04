@@ -31,9 +31,19 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="userstyle" value="labminlight"/>
                         </userDefinedRuntimeAttributes>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4X-kP-L2U">
+                        <rect key="frame" x="241" y="38" width="46" height="24"/>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="预定">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnOrder" destination="p4X-kP-L2U" id="p3a-6V-wCI"/>
                 <outlet property="labContent" destination="5Sw-i2-Lt5" id="3u9-J6-drP"/>
                 <outlet property="labTitle" destination="UP2-IQ-7xF" id="Zm9-R0-1oJ"/>
             </connections>

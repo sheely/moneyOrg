@@ -113,7 +113,7 @@
 		9E3BD1201A68107300AED2A9 /* MoneyOrg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD11E1A68107300AED2A9 /* MoneyOrg.xcdatamodeld */; };
 		9E3BD1281A68107300AED2A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3BD1271A68107300AED2A9 /* Images.xcassets */; };
 		9E3BD1371A68107300AED2A9 /* MoneyOrgTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD1361A68107300AED2A9 /* MoneyOrgTests.m */; };
-		9E3BD2861A6815BF00AED2A9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD1421A6815BF00AED2A9 /* AppDelegate.mm */; };
+		9E3BD2861A6815BF00AED2A9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD1421A6815BF00AED2A9 /* AppDelegate.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9E3BD2871A6815BF00AED2A9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BD1441A6815BF00AED2A9 /* MainViewController.m */; };
 		9E3BD2881A6815BF00AED2A9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3BD1451A6815BF00AED2A9 /* MainViewController.xib */; };
 		9E3BD2891A6815BF00AED2A9 /* color.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9E3BD1471A6815BF00AED2A9 /* color.xml */; };
@@ -2281,6 +2281,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoneyOrg",
@@ -2304,7 +2305,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -2315,6 +2316,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoneyOrg",
@@ -2337,7 +2339,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};

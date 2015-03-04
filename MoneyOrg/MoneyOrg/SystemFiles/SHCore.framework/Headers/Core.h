@@ -23,7 +23,7 @@
 #import <SHCore/SHUser.h>
 #import <SHCore/SHTools.h>
 #import <SHCore/IPAddress.h>
-#import <SHCore/SHFlowManager.h>
+//#import <SHCore/SHFlowManager.h>
 #import <SHCore/SHLogger.h>
 #import <SHCore/SHCacheManager.h>
 #import <SHCore/SHPrivateAPI.h>

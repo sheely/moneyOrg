@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labNum;
 @property (weak, nonatomic) IBOutlet UILabel *labName;
 @property (weak, nonatomic) IBOutlet UILabel *labCusNum;
+@property (weak, nonatomic) IBOutlet UIImageView *imgCusNum;
 @property (weak, nonatomic) IBOutlet UIButton *btnOrder;
 
 @end

@@ -16,28 +16,25 @@
 @end
 
 @implementation SHRecommendViewController
-- (void)viewWillAppear:(BOOL)animated
+
+
+
+-(void)viewWillAppear:(BOOL)animated
 {
     CGRect rect = [[UIScreen mainScreen]bounds];
     rect.size.height -= 50;
-    self.navigationController.view.frame =rect;
-    
-}
 
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    CGRect rect = [[UIScreen mainScreen]bounds];
     self.navigationController.view.frame =rect;
-    [super viewWillDisappear:animated];
+    [super viewWillAppear:animated];
     SHPostTaskM * post = [[SHPostTaskM alloc]init];
-    
+    [self showWaitDialogForNetWork];
     post.URL = URL_FOR(@"MyRecommendList");
     [post start:^(SHTask * t) {
+        [self dismissWaitDialog ];
         mList = t.result;
         [self.tableView reloadData];
     } taskWillTry:nil taskDidFailed:^(SHTask *t) {
-        
+        [self dismissWaitDialog ];
     }];
 
 }
@@ -89,9 +86,27 @@
     for (NSString * s  in array) {
         [content appendFormat:@"%@\n",s];
     }
+    if([[[mList objectAtIndex:indexPath.section] valueForKey:@"RecommendType"] integerValue] == 5){
+        cell.btnOrder.hidden = YES;
+    }
+    
+    [cell.btnOrder addTarget:self action:@selector(btnOrder:) forControlEvents:UIControlEventTouchUpInside];
+    cell.btnOrder.tag = indexPath.section * 10000+indexPath.row;
     cell.labContent.text = content;
-    cell.sizeToFit;
+    [cell sizeToFit];
     return cell;
+}
+
+- (void)btnOrder:(UIButton*)b
+{
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:b.tag%10000 inSection:b.tag/10000];
+    NSDictionary * dic = [[[mList objectAtIndex:indexPath.section] valueForKey:@"Content"] objectAtIndex:indexPath.row];
+    SHIntent * i = [[SHIntent alloc]init:@"order_create" delegate:nil containner:self.navigationController];
+    [i.args setValue:  [[NSUserDefaults standardUserDefaults]valueForKey:@"User"] forKey:@"user"];
+    [i.args setValue: [dic valueForKey:@"ObjectShowName"]forKey:@"product_name"];
+    [i.args setValue: [dic valueForKey:@"ObjectID"] forKey:@"product_id"];
+    
+    [[UIApplication sharedApplication]open:i];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,13 +116,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSDictionary * dic = [[[mList objectAtIndex:indexPath.section] valueForKey:@"Content"] objectAtIndex:indexPath.row];
-    SHIntent * intent = [[SHIntent alloc]init:@"prod_detail" delegate:nil containner:self.navigationController];
-    [intent.args setValue:[dic valueForKey:@"ObjectID"] forKey:@"id"];
-    [intent.args setValue:[dic valueForKey:@"ObjectShowName"] forKey:@"title"];
-    [[UIApplication sharedApplication]open:intent];
-
+    if([[[mList objectAtIndex:indexPath.section] valueForKey:@"RecommendType"] integerValue] == 5){
+           NSDictionary * dic = [[[mList objectAtIndex:indexPath.section] valueForKey:@"Content"] objectAtIndex:indexPath.row];
+        SHIntent * i = [[SHIntent alloc]init:@"product_list" delegate:nil containner:self.navigationController];
+        [i.args setValue:[dic valueForKey:@"ObjectID"]  forKey:@"group_id"];
+        [i.args setValue:[dic valueForKey:@"ObjectShowName"] forKey:@"group_name"];
+        [[UIApplication sharedApplication]open:i];
+     }else{
+        NSDictionary * dic = [[[mList objectAtIndex:indexPath.section] valueForKey:@"Content"] objectAtIndex:indexPath.row];
+        SHIntent * intent = [[SHIntent alloc]init:@"prod_detail" delegate:nil containner:self.navigationController];
+        [intent.args setValue:[dic valueForKey:@"ObjectID"] forKey:@"id"];
+        [intent.args setValue:[dic valueForKey:@"ObjectShowName"] forKey:@"title"];
+        [[UIApplication sharedApplication]open:intent];
+        
+        
+    }
 }
 
 /*

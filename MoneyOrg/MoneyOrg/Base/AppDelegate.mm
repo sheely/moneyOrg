@@ -7,10 +7,18 @@
 //
 
 #import "AppDelegate.h"
+
+
+@interface AppDelegate()
+{
+    
+}
+
+@end
+
 @implementation AppDelegate
 
 static NSString*  token = @"";
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -19,8 +27,7 @@ static NSString*  token = @"";
   #ifdef DEBUG
     [SHTask pull:URL_HEADER newUrl:BATA_HEADER];
 #endif
-//
-    
+
     return YES;
 }
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

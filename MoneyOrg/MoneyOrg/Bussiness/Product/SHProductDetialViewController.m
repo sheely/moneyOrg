@@ -21,7 +21,9 @@
         self.title = [self.intent.args valueForKey:@"title"];
         [self showWaitDialogForNetWork];
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/ProductDetail.aspx?ProductID=%@",URL_HEADER_WEB_URL,[self.intent.args valueForKey:@"id"]]]]];
+        self.labCustomer.text = [[ [self.intent.args valueForKey:@"dic" ]valueForKey:@"CustomerNum"] description];
     }
+    
     //if (USER_TYPE == 1)
     
     if(!INVESTOR){

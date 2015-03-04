@@ -71,6 +71,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnOrder" destination="4Gf-3O-K2r" id="hcP-IX-1Ke"/>
+                <outlet property="imgCusNum" destination="tZe-hK-kyv" id="stN-MA-oSa"/>
                 <outlet property="labC1" destination="BDG-XI-G2O" id="IBX-9C-p7B"/>
                 <outlet property="labC2" destination="CQv-6W-pg3" id="9vh-fq-QKh"/>
                 <outlet property="labC3" destination="Yva-Jd-SUn" id="WyP-tz-El8"/>

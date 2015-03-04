@@ -18,4 +18,11 @@
 }
 */
 
+
+- (void)loadSkin
+{
+    [super loadSkin];
+    self.btnOrder.layer.cornerRadius =5 ;
+    self.btnOrder.layer.masksToBounds = YES;
+}
 @end
