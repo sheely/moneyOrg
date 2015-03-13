@@ -47,7 +47,10 @@
 }
 
 - (IBAction)btnRegistOnTouch:(id)sender {
-    
+    if(!self.switch_new.on){
+        [self showAlertDialog:@"请先同意用户使用协议."];
+        return;
+    }
     [self showWaitDialogForNetWork];
     SHEntironment.instance.loginName = self.txtName.text;
     SHEntironment.instance.password = self.txtPassword.text;
@@ -86,5 +89,12 @@
     }];
     
 
+}
+
+- (IBAction)btnLicenceOnTouch:(id)sender {
+    SHIntent * i = [[SHIntent alloc]init:@"webview" delegate:nil containner:self.navigationController];
+    [i.args setValue:@"http://121.41.75.122:8088/RegisterProtocal.aspx" forKey:@"url"];
+    [i.args setValue:@"用户注册协议" forKey:@"title"];
+    [[UIApplication sharedApplication]open:i];
 }
 @end

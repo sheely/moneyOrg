@@ -129,7 +129,7 @@
     MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
     picker.messageComposeDelegate = self;
     picker.recipients = mListSelecteds;
-    picker.body= @"欢迎使用财富导航";
+    picker.body= [NSString stringWithFormat:@"理财师【当前理财师姓名%@】邀请你使用“财富导航”邀请码是【%@】，请下载财富导航APP",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserCode"]];
     [self showWaitDialog:@"请稍候" state:@"正在启动"];
     [self presentViewController:picker animated:YES completion:^{
         [self dismissWaitDialog];

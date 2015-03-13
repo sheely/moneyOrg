@@ -20,7 +20,8 @@
     if([self.intent.args valueForKey:@"id"]){
         self.title = [self.intent.args valueForKey:@"title"];
         [self showWaitDialogForNetWork];
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/ProductDetail.aspx?ProductID=%@",URL_HEADER_WEB_URL,[self.intent.args valueForKey:@"id"]]]]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/ProductDetail.aspx?ProductID=%@&AccountID=%@",URL_HEADER_WEB_URL,[self.intent.args valueForKey:@"id"],  [[[NSUserDefaults standardUserDefaults]valueForKey :@"User"] valueForKey:@"AccountID"] ]]]];
+        
         self.labCustomer.text = [[ [self.intent.args valueForKey:@"dic" ]valueForKey:@"CustomerNum"] description];
     }
     
@@ -66,12 +67,12 @@
 */
 
 - (IBAction)btnShareOnTouch:(id)sender {
-    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
-                                       defaultContent:@"测试一下"
+    id<ISSContent> publishContent = [ShareSDK content:[self.intent.args valueForKey:@"text"]
+                                       defaultContent:@"我的分享"
                                                 image:nil
-                                                title:@"TEST"
-                                                  url:@"TEST"
-                                          description:@"这是一条测试信息"
+                                                title:@"我的分享"
+                                                  url:@"http://www.solutionet.cn"
+                                          description:[self.intent.args valueForKey:@"text"]
                                             mediaType:SSPublishContentMediaTypeNews];
     //创建弹出菜单容器
     id<ISSContainer> container = [ShareSDK container];
@@ -102,6 +103,7 @@
     [i.args setValue:@"2" forKey:@"type"];
     [i.args setValue:[self.intent.args valueForKey:@"id"] forKey:@"product_id"];
     [i.args setValue:[self.intent.args valueForKey:@"title"] forKey:@"product_name"];
+    [i.args setValue:[self.intent.args valueForKey:@"text"] forKey:@"text"];
     [i.args setValue:@"true" forKey:@"sms"];
     [[UIApplication sharedApplication]open:i];
 

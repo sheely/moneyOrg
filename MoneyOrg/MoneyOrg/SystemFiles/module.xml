@@ -149,6 +149,14 @@
     icon = "navi_home.png"
     title = "取向"
     />
-
+    
+    <module
+    name="webview"
+    target="SHWebViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "取向"
+    />
+    
 
    </root>

@@ -9,7 +9,9 @@
 #import "SHMyWealthFinancialViewController.h"
 
 @interface SHMyWealthFinancialViewController ()
-
+{
+    NSDictionary * dic;
+}
 @end
 
 @implementation SHMyWealthFinancialViewController
@@ -46,7 +48,7 @@
     SHPostTaskM * p = [[SHPostTaskM alloc]init];
     p.URL = URL_FOR(@"GetUserDetail");
     [p start:^(SHTask *t) {
-        
+        dic = t.result;
         [self.btnMoneyManager setTitle:[ NSString stringWithFormat:@"我的理财师  :  %@",[t.result valueForKey:@"MyAccountants" ]] forState: UIControlStateNormal   ];
         self.labZhiyeState.text = [[t.result valueForKey:@"HasConfirm"] boolValue]? @"[已认证]":@"[未认证]";
         self.labLevel.text = [NSString stringWithFormat:@"等级:%d",[[t.result valueForKey:@"Score"] intValue]/100];
@@ -60,9 +62,17 @@
         [t.respinfo show];
         [self dismissWaitDialog];
     }];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出" target:self action:@selector(btnQUIT:)];
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)btnQUIT:(UIButton*) b
+{
+    SHEntironment.instance.loginName = @"";
+    SHEntironment.instance.password = @"";
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"relogin" object:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -91,6 +101,8 @@
 
 - (IBAction)btnQualificationOnTouch:(id)sender {
     SHIntent * i = [[SHIntent alloc]init:@"qualification_examination" delegate:nil containner:self.navigationController];
+    [i.args setValue: [dic valueForKey:@"AccountantSN"] forKey:@"AccountantSN"];
+    [i.args setValue: [dic valueForKey:@"CardPhotoVPath"]forKey:@"CardPhotoVPath"];
     [[UIApplication sharedApplication]open:i];
 
 }

@@ -54,7 +54,10 @@
         view.frame = CGRectMake(0, 0, 320, 44);
         self.title = @"组合明细";
         [self.view addSubview:view];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"推荐" target:self action:@selector(btnGroupTuijian:)];
+        if(!INVESTOR){
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"推荐" target:self action:@selector(btnGroupTuijian:)];
+            
+        }
     }
     titleview = [[[NSBundle mainBundle]loadNibNamed:@"SHProductTitleView" owner:nil options:nil]objectAtIndex:0];
     selectButton = self.btnT1;
@@ -69,6 +72,10 @@
     [i.args setValue:GroupID forKey:@"group_id"];
     [i.args setValue:[self.intent.args valueForKey:@"group_name"] forKey:@"group_name"];
     [i.args setValue:@"true" forKey:@"sms"];
+    
+    
+    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“财富导航”，他推荐您关注此组合:%@,想查看组合详情并和认证理财师互动,请下载财富导航app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[self.intent.args valueForKey:@"group_name"] ];
+    [i.args setValue:msg forKey:@"text"];
     [[UIApplication sharedApplication]open:i];
 }
 
@@ -188,6 +195,8 @@
     [intent.args setValue:dic forKey:@"dic"];
     [intent.args setValue:[dic valueForKey:@"ProductID"] forKey:@"id"];
     [intent.args setValue:[dic valueForKey:@"ProductName"] forKey:@"title"];
+    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“财富导航”，他推荐您关注此产品：[%@]产品摘要模版[%@:%@],[%@:%@],[%@:%@],[%@:%@],想查看产品详情并和认证理财师互动,请下载财富导航app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[dic valueForKey:@"ProductName"],titleview.btnC1.currentTitle,[dic valueForKey:@"Column1"],titleview.btnC2.currentTitle,[dic valueForKey:@"Column2"],titleview.btnC3.currentTitle,[dic valueForKey:@"Column3"],titleview.btnC4.currentTitle,[dic valueForKey:@"Column4"]];
+    [intent.args setValue:msg forKey:@"text"];
     [[UIApplication sharedApplication]open:intent];
     
 }/*

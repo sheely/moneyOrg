@@ -108,6 +108,14 @@
     SHMyCustomerCell * cell =  [[[NSBundle mainBundle]loadNibNamed:@"SHMyCustomerCell" owner:nil options:nil]objectAtIndex:0];
     [cell.imgView setUrl: [dic valueForKey:@"UserVPhoto"]];
     cell.labTitle.text = [dic valueForKey:@"UserName"];
+    if(cell.labTitle.text.length > 0){
+        if([mListSelecteds containsObject:cell.labTitle.text]){
+            cell.switch_sms.on = YES;
+        }else{
+            cell.switch_sms.on = NO;
+        }
+    }
+   
     cell.labContent.text = [dic valueForKey:@"UserCode"];
     if([type caseInsensitiveCompare:@"1"] == NSOrderedSame){
         cell.btnDelete.hidden = YES;
@@ -217,9 +225,7 @@
     //    picker.body=[NSString stringWithFormat:@"我在爱折客上看到：%@ 可能对你有用，推荐给你！link：%@"
     //                 ,[web stringByEvaluatingJavaScriptFromString:@"document.title"]
     //                 ,absUrl];
-    picker.body=  [NSString stringWithFormat: @"理财师【%@】正在使用“财富导航”，他推荐您关注此产品：【%@】产品摘要模版（同产品列表中各column）想查看产品详情并和认证理财师互动，请下载财富导航APP。http://www.baidu.com",
-                   [[[NSUserDefaults standardUserDefaults]valueForKey:@"User"] valueForKey:@"UserName"]
-                   ,self.title];
+    picker.body=   [self.intent.args valueForKey:@"title"];
     [self showWaitDialog:@"请稍候" state:@"正在启动"];
     [self presentViewController:picker animated:YES completion:^{
         [self dismissWaitDialog];

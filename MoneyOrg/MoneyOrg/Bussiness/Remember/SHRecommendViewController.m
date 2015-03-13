@@ -86,7 +86,7 @@
     for (NSString * s  in array) {
         [content appendFormat:@"%@\n",s];
     }
-    if([[[mList objectAtIndex:indexPath.section] valueForKey:@"RecommendType"] integerValue] == 5){
+    if([[[mList objectAtIndex:indexPath.section] valueForKey:@"RecommendType"] integerValue] == 5 || [[[mList objectAtIndex:indexPath.section] valueForKey:@"RecommendType"] integerValue] == 1){
         cell.btnOrder.hidden = YES;
     }
     

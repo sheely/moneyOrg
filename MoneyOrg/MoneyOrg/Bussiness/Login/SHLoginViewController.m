@@ -22,6 +22,7 @@
         self.txtLogin.text = [[[NSUserDefaults standardUserDefaults] valueForKey:@"User"] valueForKey:@"AccountID"];
     }
     self.navigationItem.leftBarButtonItem = nil;
+    self.autoKeyboard = YES;
     // Do any additional setup after loading the view from its nib.
 }
 

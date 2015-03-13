@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "WXApi.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
 
 @interface AppDelegate()
 {
@@ -23,8 +25,10 @@ static NSString*  token = @"";
 {
     // Override point for customization after application launch.
     [super application:application didFinishLaunchingWithOptions:launchOptions];
+    [ShareSDK importWeChatClass:[WXApi class]];
+    [ShareSDK importQQClass:[QQApiInterface class]tencentOAuthCls:[TencentOAuth class]];
     [ShareSDK registerApp:@"api20"];
-  #ifdef DEBUG
+#ifdef DEBUG
     [SHTask pull:URL_HEADER newUrl:BATA_HEADER];
 #endif
 

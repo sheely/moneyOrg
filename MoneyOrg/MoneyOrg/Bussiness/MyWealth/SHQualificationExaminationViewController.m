@@ -33,8 +33,16 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"下一步"  target:self action:@selector(btnOK:)];
         
     }else{
-         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[ UIImage imageNamed:@"ic_ok"]  target:self action:@selector(btnOK:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[ UIImage imageNamed:@"ic_ok"]  target:self action:@selector(btnOK:)];
     }
+    if ([[self.intent.args valueForKey:@"AccountantSN"] length] > 0) {
+        self.txtCardID.text = [self.intent.args valueForKey:@"AccountantSN"];
+    }
+    
+    if ([[self.intent.args valueForKey:@"CardPhotoVPath"] length] > 0) {
+        [self.imgView setUrl:[self.intent.args valueForKey:@"CardPhotoVPath"]];
+    }
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -48,6 +56,8 @@
     [p.postArgs setValue:self.txtCardID.text forKey:@"AccountantSN"];
     if(self.imgView.image){
         [p.postArgs setValue:[SHTools encode:UIImageJPEGRepresentation(self.imgView.image,0.5)] forKey:@"CardPhoto"];
+    }else {
+         [p.postArgs setValue:@"" forKey:@"CardPhoto"];
     }
     [p start:^(SHTask * t) {
         if([[self.intent.args valueForKey:@"reg"] length] > 0){

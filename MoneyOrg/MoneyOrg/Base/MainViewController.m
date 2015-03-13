@@ -67,12 +67,20 @@
         if(USER_TYPE == 1){
             if([module->name caseInsensitiveCompare:@"assemble"] == NSOrderedSame){
                 module->type = @"main";
-                break;
+                continue;
+            }else if([module->name caseInsensitiveCompare:@"recommend"] == NSOrderedSame){
+                module->type = @"--";
+                continue;
             }
+
+            
         }else if (USER_TYPE == 2){
             if([module->name caseInsensitiveCompare:@"recommend"] == NSOrderedSame){
                 module->type = @"main";
-                break;
+                continue;
+            }else if([module->name caseInsensitiveCompare:@"assemble"] == NSOrderedSame){
+                module->type = @"--";
+                continue;
             }
         }
     }
@@ -136,7 +144,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(carprofilechange:) name:@"carprofilechange" object:nil];//消息通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(guild_view_finished:) name:@"guild_view_finished" object:nil];//消息通知
 
-    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(a) name:@"relogin" object:nil];//消息通知
     [self performSelector:@selector(a) withObject:nil afterDelay:0.01];
     
     //[self performSelector:@selector(loginSuc) afterNotification:NOTIFICATION_LOGIN_SUCCESSFUL];

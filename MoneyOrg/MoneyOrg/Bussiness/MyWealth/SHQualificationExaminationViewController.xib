@@ -36,10 +36,10 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ca8-1i-JfC" customClass="SHImageView">
-                    <rect key="frame" x="23" y="212" width="274" height="174"/>
+                    <rect key="frame" x="23" y="212" width="274" height="207"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuY-PU-My3">
-                    <rect key="frame" x="23" y="212" width="274" height="174"/>
+                    <rect key="frame" x="23" y="212" width="274" height="207"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="点击上传图片">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

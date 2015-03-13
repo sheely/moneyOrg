@@ -20,19 +20,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="76Y-Pb-p3S">
-                        <rect key="frame" x="241" y="3" width="70" height="21"/>
+                        <rect key="frame" x="246" y="3" width="41" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CQv-6W-pg3">
-                        <rect key="frame" x="86" y="3" width="70" height="21"/>
+                        <rect key="frame" x="90" y="3" width="70" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Yva-Jd-SUn">
-                        <rect key="frame" x="163" y="3" width="70" height="21"/>
+                        <rect key="frame" x="168" y="3" width="73" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                 <outlet property="labName" destination="eMd-Bt-qH7" id="HoC-mZ-4GG"/>
                 <outlet property="labNum" destination="BMW-Ae-zNC" id="5kd-CX-Wtx"/>
             </connections>
-            <point key="canvasLocation" x="203" y="202"/>
+            <point key="canvasLocation" x="203" y="200"/>
         </tableViewCell>
     </objects>
     <resources>
