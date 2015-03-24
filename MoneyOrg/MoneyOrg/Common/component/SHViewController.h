@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SHViewController : UIViewController<ISHSkin>
+@interface SHViewController : UIViewController<ISHSkin,UITextFieldDelegate,UIScrollViewDelegate>
 
 @property (nonatomic,assign) BOOL autoKeyboard;
 /**
@@ -79,5 +79,10 @@
 - (float)leftSContentOffset;
 
 - (void) clicktheblank;
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView_;
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField_ ;       // return NO to disallow editing.
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar;   ;                   // return NO to not become first responder
+
 
 @end

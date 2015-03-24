@@ -19,6 +19,9 @@
     UIButton * selectButton;
     NSString * SearchType;
     NSString * GroupID;
+    NSString * OrderFiled;
+    NSString * OrderDirect;
+    NSString * keyword;
 }
 @end
 
@@ -42,10 +45,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"产品列表";
+    self.navigationItem.titleView = self.searcbar;
     poductType = @"1";
     pdsubtype = @"0";
     SearchType = @"1";
     GroupID = @"";
+    OrderDirect = @"1";
+    OrderFiled = @"Column1";
+    keyword = @"";
     if ([self.intent.args valueForKey:@"group_id"]) {
         GroupID = [self.intent.args valueForKey:@"group_id"];
         SearchType = @"3";
@@ -60,10 +67,75 @@
         }
     }
     titleview = [[[NSBundle mainBundle]loadNibNamed:@"SHProductTitleView" owner:nil options:nil]objectAtIndex:0];
+    [titleview.btnC1 addTarget:self action:@selector(btnC:) forControlEvents:UIControlEventTouchUpInside];
+    [titleview.btnC2 addTarget:self action:@selector(btnC:) forControlEvents:UIControlEventTouchUpInside];
+    [titleview.btnC3 addTarget:self action:@selector(btnC:) forControlEvents:UIControlEventTouchUpInside];
+    [titleview.btnC4 addTarget:self action:@selector(btnC:) forControlEvents:UIControlEventTouchUpInside];
+    
     selectButton = self.btnT1;
 
     // Do any additional setup after loading the view from its nib.
 }
+
+- (void)btnC:(UIButton*)b
+{
+    NSString * sort = @"";
+    switch (b.tag) {
+        case 0:
+            sort = @"Column1";
+            
+            break;
+        case 1:
+            sort = @"Column2";
+
+            break;
+        case 2:
+            sort = @"Column3";
+
+            break;
+        case 3:
+            sort = @"Column4";
+
+            break;
+            
+        default:
+            break;
+    }
+    if([OrderFiled isEqualToString:sort]){
+        if([OrderDirect isEqualToString:@"1"]){
+            OrderDirect = @"0";
+        }else{
+            OrderDirect = @"1";
+        }
+    }
+    OrderFiled = sort;
+    titleview.img1.image = [UIImage imageNamed:@"ic_sort.png"];
+    titleview.img2.image = [UIImage imageNamed:@"ic_sort.png"];
+    titleview.img3.image = [UIImage imageNamed:@"ic_sort.png"];
+    titleview.img4.image = [UIImage imageNamed:@"ic_sort.png"];
+    UIImageView * imgView;
+    if([OrderFiled isEqualToString:@"Column1"]){
+        imgView = titleview.img1;
+    }else  if([OrderFiled isEqualToString:@"Column2"]){
+        imgView = titleview.img2;
+    }else  if([OrderFiled isEqualToString:@"Column3"]){
+        imgView = titleview.img3;
+    }else  if([OrderFiled isEqualToString:@"Column4"]){
+        imgView = titleview.img4;
+    }
+ 
+    if([OrderDirect isEqualToString:@"0"]){
+        imgView.image = [UIImage imageNamed:@"ic_sort_up.png"];
+    }else if ([OrderDirect isEqualToString:@"1"]){
+        imgView.image = [UIImage imageNamed:@"ic_sort_down.png"];
+    }
+    [self reSet];
+}
+//
+//- (void)reSet
+//{
+//    [self loadNext];
+//}
 
 - (void)btnGroupTuijian:(UIButton*) btn
 {
@@ -97,8 +169,11 @@
     [p.postArgs setValue:GroupID forKey:@"GroupID"];
     [p.postArgs setValue:@"25" forKey:@"PageSize"];
     [p.postArgs setValue:@"1" forKey:@"PageIndex"];
-    [p.postArgs setValue:@"Column1" forKey:@"OrderFiled"];
-    [p.postArgs setValue:@"0" forKey:@"OrderDirect"];
+    [p.postArgs setValue:OrderFiled forKey:@"OrderFiled"];
+    [p.postArgs setValue:OrderDirect forKey:@"OrderDirect"];
+    [p.postArgs setValue:keyword forKey:@"Keyword"];
+    
+    
     //"UserID": "f1b98876-2222-48da-b295-02dd992b172a",
     //"SessionID": "9054f537-f46c-466a-a1b0-eefd99a6df71",
     [self showWaitDialogForNetWork];
@@ -117,7 +192,7 @@
     }];
 }
 
-- (float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 32;
 }
@@ -180,7 +255,7 @@
     }
 }
 
-- (float) tableView:(UITableView *)tableView heightForGeneralRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat) tableView:(UITableView *)tableView heightForGeneralRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
 }
@@ -319,6 +394,22 @@
     selectButton = sender;
     sender.selected = YES;
     poductType = @"4";
+    [self reSet];
+}
+
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    keyword  = @"";
+    [searchBar resignFirstResponder ];
+    [self reSet];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+
+{
+    keyword  = searchBar.text;
     [self reSet];
 }
 @end

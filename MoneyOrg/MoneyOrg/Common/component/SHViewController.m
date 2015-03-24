@@ -35,6 +35,7 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
     UIPanGestureRecognizer* _panGestureRec;
     UITapGestureRecognizer* _tapBankGestureRec ;
     UIView * textfied;
+    BOOL mIsShowKeyboard;
 }
 @end
 
@@ -117,7 +118,13 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
         
     }
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(autoKeyboard){
+        [self registerForKeyboardNotifications];
+    }
+}
 - (void)setAutoKeyboard:(BOOL)autoKeyboard_
 {
     autoKeyboard = autoKeyboard_;
@@ -135,17 +142,17 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
 #if DEBUG
     NSLog(@"%@",[[view class] description]);
 #endif
+   
+    if ([view isKindOfClass:[UITextView class]] || [view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UISearchBar class]]){
+        //NSLog(@"%@",[[view class] description]);
+        UITextField * f = (UITextField*)view;
+        f.delegate = self;
+        return;//不允许嵌套
+    }
     if( view.subviews.count > 0){
         for (UIView * v  in view.subviews) {
             [self __regeistview:v];
         }
-    }
-    if ([view isKindOfClass:[UITextView class]] || [view isKindOfClass:[UITextField class]]){
-        //NSLog(@"%@",[[view class] description]);
-        UITextField * f = (UITextField*)view;
-        f.delegate = self;
-        //        [f addTarget:self action:@selector(a:) forControlEvents:UIControlEventEditingDidBegin];
-        //        [f addTarget:self action:@selector(b:) forControlEvents:UIControlEventEditingDidEndOnExit];
     }
 }
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView_
@@ -159,7 +166,11 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
     textfied = textField_;
     return YES;
 }
-
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar;                      // return NO to not become first responder
+{
+    textfied = searchBar;
+    return YES;
+}
 
 - (void)registerForKeyboardNotifications
 {
@@ -171,17 +182,29 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
                                                  name:UIKeyboardWillHideNotification object:nil];
 }
 
+
+- (void)unregisterForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
 - (void)keyboardDidShown:(NSNotification*)ns
 {
     if(!textfied || ![textfied isFirstResponder]){
         return;
     }
-
+    
     CGRect convertrect = [[UIApplication sharedApplication].keyWindow convertRect:textfied.frame fromView:textfied.superview];
-    //if(!mIsShowKeyboard){
-        mRectkeybordview = [UIApplication sharedApplication].keyWindow.frame;
-        mRectkeybordview.origin.y = 0;
-    //}
+    if(!mIsShowKeyboard){
+        mRectkeybordview = self.view.frame;
+        mIsShowKeyboard= YES;
+        //mRectkeybordview.origin.y = 0;
+    }
     //mIsShowKeyboard = YES;
     [UIView beginAnimations:nil context:nil];
     //设定动画持续时间
@@ -191,15 +214,10 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
 
     int tagaheight = convertrect.size.height + convertrect.origin.y;
     [[[ns userInfo] objectForKey:UIKeyboardBoundsUserInfoKey] getValue:&rect];
-    int height = mRectkeybordview.size.height - rect.size.height ;
+    int height = [UIApplication sharedApplication].keyWindow.frame.size.height  - rect.size.height ;
     if(tagaheight > height){
-        [UIApplication sharedApplication].keyWindow.frame = CGRectMake(mRectkeybordview.origin.x,
+       self.view.frame = CGRectMake(mRectkeybordview.origin.x,
                                                                        mRectkeybordview.origin.y - (tagaheight - height),
-                                                                       mRectkeybordview.size.width,
-                                                                       mRectkeybordview.size.height);
-    }else{
-        [UIApplication sharedApplication].keyWindow.frame = CGRectMake(mRectkeybordview.origin.x,
-                                                                       0,
                                                                        mRectkeybordview.size.width,
                                                                        mRectkeybordview.size.height);
     }
@@ -219,13 +237,10 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
     [UIView beginAnimations:nil context:nil];
     //设定动画持续时间
     [UIView setAnimationDuration:0.3];
-    [UIApplication sharedApplication].keyWindow.frame = CGRectMake(mRectkeybordview.origin.x,
-                                                                   0,
-                                                                   mRectkeybordview.size.width,
-                                                                   mRectkeybordview.size.height);
+    self.view.frame = mRectkeybordview;
     [UIView commitAnimations];
     [self setTapGesture:NO];
-
+    mIsShowKeyboard= NO;
 }
 
 - (void)setTapGesture:(BOOL)tapGesture_
@@ -236,6 +251,9 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
             _tapBankGestureRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clicktheblank)];
 
         }
+        if([self.view isKindOfClass:[UIScrollView class]] == YES){
+            ((UIScrollView*)self.view).delegate = self;
+        }
         [self.view addGestureRecognizer:_tapBankGestureRec];
 
     }else{
@@ -243,6 +261,11 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
             [self.view removeGestureRecognizer:_tapBankGestureRec];
         }
     }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self clicktheblank];
 }
 
 - (void)moveViewWithGesture:(UIPanGestureRecognizer *)panGes
@@ -644,29 +667,19 @@ typedef NS_ENUM(NSInteger, RMoveDirection) {
             [self resignKeyBoardInView:v];
         }
         
-        if ([v isKindOfClass:[UITextView class]] || [v isKindOfClass:[UITextField class]]) {
+        if ([v isKindOfClass:[UITextView class]] || [v isKindOfClass:[UITextField class]] ||  [v isKindOfClass:[UISearchBar class]]) {
             [v resignFirstResponder];
         }
     }
 }
 
--(void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     [self unregisterForKeyboardNotifications];
     [self resignKeyBoardInView:self.view];
     [self closeSideBar];
-
 }
-
-- (void)unregisterForKeyboardNotifications
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self
-													name:UIKeyboardDidShowNotification
-												  object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self
-													name:UIKeyboardDidHideNotification
-												  object:nil];
-}
+		
 
 - (void)dismiss
 {

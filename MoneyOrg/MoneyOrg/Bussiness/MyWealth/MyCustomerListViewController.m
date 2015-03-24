@@ -38,6 +38,8 @@
         if(sms){
             self.title = [NSString stringWithFormat:@"%@",self.title];
         }
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"无客户也下单" target:self action:@selector(btnOrderNoName:)];
+
         
     }else if ([type caseInsensitiveCompare:@"3"] == NSOrderedSame){
         self.title = [self.intent.args valueForKey:@"group_name"];
@@ -97,7 +99,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (float) tableView:(UITableView *)tableView heightForGeneralRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat) tableView:(UITableView *)tableView heightForGeneralRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 55;
 }
@@ -167,6 +169,17 @@
 
     [[UIApplication sharedApplication]open:i];
 }
+- (void)btnOrderNoName:(UIButton*)b
+{
+    SHIntent * i = [[SHIntent alloc]init:@"order_create" delegate:nil containner:self.navigationController];
+    //[i.args setValue: dic forKey:@"user"];
+    [i.args setValue: [self.intent.args valueForKey:@"product_name"] forKey:@"product_name"];
+    [i.args setValue: [self.intent.args valueForKey:@"product_id"] forKey:@"product_id"];
+    
+    [[UIApplication sharedApplication]open:i];
+}
+
+
 - (void)sendmsg
 {
     Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));

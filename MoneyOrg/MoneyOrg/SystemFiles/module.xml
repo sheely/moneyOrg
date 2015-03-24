@@ -10,6 +10,13 @@
 
     />
     <module
+    name="first"
+    target="SHFirstPageViewController"
+    type = "--"
+    icon = "ic_list.png"
+    title = "首页"
+    />
+<module
     name="product_list"
     target="SHProductListViewController"
     type = "main"
@@ -18,11 +25,11 @@
     />
 
     <module
-    name="assemble"
-    target="SHMyAssembleViewController"
+    name="myshop"
+    target="SHCollectViewController"
     type = "--"
-    icon = "ic_recommend.png"
-    title = "我的组合"
+    icon = "ic_shop_nom.png"
+    title = "我的店铺"
     />
     <module
     name="recommend"
@@ -157,6 +164,6 @@
     icon = "navi_home.png"
     title = "取向"
     />
-    
+   
 
    </root>

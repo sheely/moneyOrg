@@ -10,7 +10,8 @@
 
 @interface SHCreateOrderViewController : SHViewController
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
-@property (weak, nonatomic) IBOutlet UILabel *labUser;
+//@property (weak, nonatomic) IBOutlet UILabel *labUser;
 @property (weak, nonatomic) IBOutlet UITextField *txtField;
+@property (weak, nonatomic) IBOutlet UITextField *txtUser;
 
 @end

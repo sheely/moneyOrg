@@ -13,7 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnShare;
 @property (weak, nonatomic) IBOutlet UIButton *btnTuijian;
 @property (weak, nonatomic) IBOutlet UILabel *labCustomer;
+@property (weak, nonatomic) IBOutlet UIButton *btnOrder;
 - (IBAction)btnShareOnTouch:(id)sender;
 - (IBAction)btnTuijianOnTouch:(id)sender;
+- (IBAction)btnOrderOnTouch:(id)sender;
 
 @end

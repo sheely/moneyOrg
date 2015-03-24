@@ -8,11 +8,12 @@
 
 #import "SHTableViewController.h"
 
-@interface SHProductListViewController : SHTableViewController<UITableViewDataSource>
+@interface SHProductListViewController : SHTableViewController<UISearchBarDelegate, UITableViewDataSource>
 - (IBAction)btnT1OnTouch:(id)sender;
 - (IBAction)btnT2OnTouch:(id)sender;
 - (IBAction)btnT3OnTouch:(id)sender;
 - (IBAction)btnT4OnTouch:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btnT1;
+@property (strong, nonatomic) IBOutlet UISearchBar *searcbar;
 
 @end

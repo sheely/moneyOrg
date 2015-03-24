@@ -18,7 +18,11 @@
     [super viewDidLoad];
     self.title = @"创建订单";
     self.labTitle.text = [self.intent.args valueForKey:@"product_name"];
-    self.labUser.text = [[self.intent.args valueForKey:@"user"] valueForKey:@"UserName"];
+    self.txtUser.text = [[self.intent.args valueForKey:@"user"] valueForKey:@"UserName"];
+    if([[[self.intent.args valueForKey:@"user"] valueForKey:@"UserCode"] length] > 0){
+        self.txtUser.text = [[self.intent.args valueForKey:@"user"] valueForKey:@"UserName"];
+
+    }
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_ok"]  target:self action:@selector(btnOK:)];
 
     // Do any additional setup after loading the view from its nib.
@@ -28,7 +32,15 @@
 {
     SHPostTaskM * p = [[SHPostTaskM alloc]init];
     p.URL = URL_FOR(@"CreateOrder");
-    [p.postArgs setValue: [[self.intent.args valueForKey:@"user"] valueForKey:@"UserCode"]forKey:@"CustomerUserCode"];
+    if([[[self.intent.args valueForKey:@"user"] valueForKey:@"UserCode"] length] > 0){
+         [p.postArgs setValue: [[self.intent.args valueForKey:@"user"] valueForKey:@"UserCode"]forKey:@"CustomerUserCode"] ;
+    }else{
+         [p.postArgs setValue: self.txtUser.text forKey:@"CustomerUserCode"] ;
+    }
+   
+    
+    
+    
     [p.postArgs setValue: [self.intent.args valueForKey:@"product_id"]forKey:@"ProductID"];
     [p.postArgs setValue: self.txtField.text forKey:@"ApplyMoney"];
 

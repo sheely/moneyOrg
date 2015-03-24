@@ -9,7 +9,9 @@
 #import "SHProductDetialViewController.h"
 
 @interface SHProductDetialViewController ()
-
+{
+    NSMutableDictionary * dic;
+}
 @end
 
 @implementation SHProductDetialViewController
@@ -20,6 +22,21 @@
     if([self.intent.args valueForKey:@"id"]){
         self.title = [self.intent.args valueForKey:@"title"];
         [self showWaitDialogForNetWork];
+        SHPostTaskM * post = [[SHPostTaskM alloc]init];
+        post.URL = URL_FOR(@"GetProductDetail");
+        [post.postArgs setValue:[self.intent.args valueForKey:@"id"] forKey:@"ProductID"];
+        [post.postArgs setValue: @"" forKey:@"ProductCode"];
+        [post start:^(SHTask * t) {
+            dic = [t.result mutableCopy];
+            self.labCustomer.text = [[dic valueForKey:@"CustomerNum"] description];
+            if([[dic valueForKey:@"HasCollect"] boolValue]){
+                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_collection_sel"] target:self action:@selector(btnCollect:)];
+            }else{
+                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_collection_nom"] target:self action:@selector(btnCollect:)];
+            }
+        } taskWillTry:nil taskDidFailed:^(SHTask * t) {
+            
+        }];
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/ProductDetail.aspx?ProductID=%@&AccountID=%@",URL_HEADER_WEB_URL,[self.intent.args valueForKey:@"id"],  [[[NSUserDefaults standardUserDefaults]valueForKey :@"User"] valueForKey:@"AccountID"] ]]]];
         
         self.labCustomer.text = [[ [self.intent.args valueForKey:@"dic" ]valueForKey:@"CustomerNum"] description];
@@ -33,11 +50,39 @@
 // Do any additional setup after loading the view from its nib.
 }
 
+- (void)btnCollect:(UIButton*)b
+{
+    [self showWaitDialogForNetWork];
+    SHPostTaskM * p = [[SHPostTaskM alloc]init];
+    p.URL = URL_FOR(@"CollectProduct");
+    [p.postArgs setValue:[self.intent.args valueForKey:@"id"] forKey:@"ProductID"];
+
+    if([[dic valueForKey:@"HasCollect"] boolValue]){
+        [p.postArgs setValue:@"2" forKey:@"OpType"];
+    }else{
+        [p.postArgs setValue:@"1" forKey:@"OpType"];
+    }
+    [p start:^(SHTask *t) {
+        [dic setValue:[NSNumber numberWithBool:![[dic valueForKey:@"HasCollect"] boolValue]] forKey:@"HasCollect"];
+        if([[dic valueForKey:@"HasCollect"] boolValue]){
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_collection_sel"] target:self action:@selector(btnCollect:)];
+        }else{
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_collection_nom"] target:self action:@selector(btnCollect:)];
+        }
+        [self dismissWaitDialog];
+        [t.respinfo show];
+    } taskWillTry:nil taskDidFailed:^(SHTask *t) {
+        [t.respinfo show];
+        [self dismissWaitDialog];
+    }];
+   }
+
 - (void)loadSkin
 {
     [super loadSkin];
     self.btnShare.layer.cornerRadius = 5;
     self.btnTuijian.layer.cornerRadius = 5;
+    self.btnOrder.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,6 +151,27 @@
     [i.args setValue:[self.intent.args valueForKey:@"text"] forKey:@"text"];
     [i.args setValue:@"true" forKey:@"sms"];
     [[UIApplication sharedApplication]open:i];
+
+}
+
+- (IBAction)btnOrderOnTouch:(id)sender {
+    
+    if(INVESTOR){
+        SHIntent * i = [[SHIntent alloc]init:@"order_create" delegate:nil containner:self.navigationController];
+        [i.args setValue:  [[NSUserDefaults standardUserDefaults]valueForKey:@"User"] forKey:@"user"];
+        [i.args setValue: [dic valueForKey:@"ProductName"]forKey:@"product_name"];
+        [i.args setValue: [self.intent.args valueForKey:@"id"] forKey:@"product_id"];
+        
+        [[UIApplication sharedApplication]open:i];
+        
+    }else{
+        
+        SHIntent * i = [[SHIntent alloc]init:@"customer_list" delegate:nil containner:self.navigationController];
+        [i.args setValue:@"2" forKey:@"type"];
+        [i.args setValue:[self.intent.args valueForKey:@"id"] forKey:@"product_id"];
+        [i.args setValue:[dic valueForKey:@"ProductName"] forKey:@"product_name"];
+        [[UIApplication sharedApplication]open:i];
+    }
 
 }
 @end

@@ -41,7 +41,7 @@
                         <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwn-bb-VJW">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwn-bb-VJW">
                     <rect key="frame" x="80" y="0.0" width="80" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="--">
@@ -55,7 +55,7 @@
                         <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTL-uf-iUE">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTL-uf-iUE">
                     <rect key="frame" x="160" y="0.0" width="80" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="--">
@@ -69,7 +69,7 @@
                         <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQW-XP-6JS">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQW-XP-6JS">
                     <rect key="frame" x="240" y="0.0" width="80" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="--">
@@ -83,6 +83,18 @@
                         <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_sort.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZqG-Ni-pp0">
+                    <rect key="frame" x="70" y="9" width="7" height="11"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_sort.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rug-n4-6Hm">
+                    <rect key="frame" x="150" y="9" width="7" height="11"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_sort.png" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-wb-0Eh">
+                    <rect key="frame" x="230" y="9" width="7" height="11"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_sort.png" translatesAutoresizingMaskIntoConstraints="NO" id="APn-X8-6PE">
+                    <rect key="frame" x="310" y="9" width="7" height="11"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -96,7 +108,14 @@
                 <outlet property="btnC2" destination="Wwn-bb-VJW" id="YaM-79-4fy"/>
                 <outlet property="btnC3" destination="NTL-uf-iUE" id="l9v-jo-9Vc"/>
                 <outlet property="btnC4" destination="cQW-XP-6JS" id="BRC-pC-2Mt"/>
+                <outlet property="img1" destination="ZqG-Ni-pp0" id="4fu-Zf-IAQ"/>
+                <outlet property="img2" destination="Rug-n4-6Hm" id="1w1-qb-HX1"/>
+                <outlet property="img3" destination="kCa-wb-0Eh" id="pOn-Lw-wup"/>
+                <outlet property="img4" destination="APn-X8-6PE" id="KLf-Wh-col"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="ic_sort.png" width="14" height="22"/>
+    </resources>
 </document>

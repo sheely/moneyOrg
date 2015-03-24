@@ -32,30 +32,8 @@
     return self;
 }
 
-- (void)messageChanged:(NSNotification *)d
-{
-    NSArray * array = [((SHResMsgM*)d.object).result valueForKey:@"ordernewmessage"];
-    for (NSObject* b in array) {
-        [[NSNotificationCenter defaultCenter ] postNotificationName:@"notification_remain" object:@"order"];
-    }
-}
 
-- (void)orderchage:(NSNotification*)o
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_remain" object:@"order"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_UPDATE_ORDER object:nil];
 
-}
-
-- (void)newreport:(NSNotification*)o
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_remain" object:@"car"];
-}
-
-- (void)carprofilechange:(NSNotification*)o
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_remain" object:@"car"];
-}
 
 -(void)loginSuc
 {
@@ -65,10 +43,13 @@
     sublist = [[NSMutableArray alloc]init];
     for (SHModule* module in array) {
         if(USER_TYPE == 1){
-            if([module->name caseInsensitiveCompare:@"assemble"] == NSOrderedSame){
+            if([module->name caseInsensitiveCompare:@"first"] == NSOrderedSame){
                 module->type = @"main";
                 continue;
-            }else if([module->name caseInsensitiveCompare:@"recommend"] == NSOrderedSame){
+            }else if([module->name caseInsensitiveCompare:@"myshop"] == NSOrderedSame){
+                module->type = @"main";
+                continue;
+            } else if([module->name caseInsensitiveCompare:@"recommend"] == NSOrderedSame){
                 module->type = @"--";
                 continue;
             }
@@ -78,7 +59,7 @@
             if([module->name caseInsensitiveCompare:@"recommend"] == NSOrderedSame){
                 module->type = @"main";
                 continue;
-            }else if([module->name caseInsensitiveCompare:@"assemble"] == NSOrderedSame){
+            }else if([module->name caseInsensitiveCompare:@"first"] == NSOrderedSame){
                 module->type = @"--";
                 continue;
             }
