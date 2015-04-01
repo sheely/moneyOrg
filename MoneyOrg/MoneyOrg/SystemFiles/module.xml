@@ -12,9 +12,9 @@
     <module
     name="first"
     target="SHFirstPageViewController"
-    type = "--"
-    icon = "ic_list.png"
-    title = "首页"
+    type = "main"
+    icon = "ic_home.png"
+    title = "有钱"
     />
 <module
     name="product_list"
@@ -164,6 +164,12 @@
     icon = "navi_home.png"
     title = "取向"
     />
-   
+    <module
+    name="myinfo"
+    target="SHMyInfoViewController"
+    type = "--"
+    icon = "navi_home.png"
+    title = "取向"
+    />
 
    </root>

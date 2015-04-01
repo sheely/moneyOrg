@@ -83,6 +83,7 @@
     self.btnShare.layer.cornerRadius = 5;
     self.btnTuijian.layer.cornerRadius = 5;
     self.btnOrder.layer.cornerRadius = 5;
+    self.btnDoc.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -173,5 +174,16 @@
         [[UIApplication sharedApplication]open:i];
     }
 
+}
+
+- (IBAction)btnDocOnTouch:(id)sender {
+    if([[dic valueForKey:@"PublishPlanUrl"] length]> 0){
+        SHIntent * i = [[SHIntent alloc]init:@"webview" delegate:nil containner:self.navigationController];
+        [i.args setValue:[dic valueForKey:@"PublishPlanUrl"] forKey:@"url"];
+        [i.args setValue:@"发型方案" forKey:@"title"];
+        [[UIApplication sharedApplication]open:i];
+    }else{
+        [self showAlertDialog:@"暂无发型方案"];
+    }
 }
 @end

@@ -39,8 +39,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的店铺";
-    self.tableView.tableHeaderView = self.imgView;
-    // Do any additional setup after loading the view from its nib.
+     SHPostTaskM * p = [[SHPostTaskM alloc]init];
+     p.URL = URL_FOR(@"GetUserDetail");
+     [p start:^(SHTask *t) {
+        
+          int level = [[t.result valueForKey:@"Score"] intValue]/100;
+          if(level == 0){
+               level = 1;
+          }
+          for (int i = 0; i< level; i++) {
+               UIImageView * img = [[UIImageView alloc]init];
+               img.image = [UIImage imageNamed:@"ic_star"];
+               img.frame = CGRectMake(62 + (20)*i , 31, 15, 15);
+               [self.view addSubview:img];
+          }
+          self.labName.text = [NSString stringWithFormat:@"%@的店铺",[t.result valueForKey:@"UserName"]];
+          [self.imgView setUrl:[t.result valueForKey:@"UserVPhoto"]];
+          
+          [self dismissWaitDialog];
+     } taskWillTry:nil taskDidFailed:^(SHTask *t) {
+          [t.respinfo show];
+          [self dismissWaitDialog];
+     }];
+     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)loadNext
@@ -78,7 +99,13 @@
     cell.labC1.text =  [[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:1] ;
     cell.labC2.text =  [[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:1] ;
     cell.labC3.text =  [[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:1] ;
-    cell.labC4.text =  [[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:1] ;    //cell.labNum.text = [dic valueForKey:@"ProductCode"];
+    if(a.count > 3){
+        cell.labC4.text =  [[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:1] ;    //cell.labNum.text = [dic valueForKey:@"ProductCode"];
+
+    }
+    CGRect r = cell.labName.frame;
+    r.size.width = 300;
+    cell.labName.frame = r;
     cell.labName.text = [dic valueForKey:@"ShortProductName"];
     //cell.labCusNum.text = [[dic valueForKey:@"CustomerNum"] stringValue];
     [cell alternate:indexPath];
@@ -108,7 +135,7 @@
     [intent.args setValue:[dic valueForKey:@"ShortProductName"] forKey:@"title"];
     
     NSArray *a = [[dic valueForKey:@"Columns"]componentsSeparatedByString:@"|"];
-    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“财富导航”，他推荐您关注此产品：[%@]产品摘要模版[%@:%@],[%@:%@],[%@:%@],[%@:%@],想查看产品详情并和认证理财师互动,请下载财富导航app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[dic valueForKey:@"ShortProductName"],[[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:1]];
+    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“天天有钱”，他推荐您关注此产品：[%@]产品摘要模版[%@:%@],[%@:%@],[%@:%@],[%@:%@],想查看产品详情并和认证理财师互动,请下载天天有钱app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[dic valueForKey:@"ShortProductName"],[[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:1]];
     [intent.args setValue:msg forKey:@"text"];
     [[UIApplication sharedApplication]open:intent];
 }

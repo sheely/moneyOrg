@@ -34,8 +34,12 @@
     p.URL = URL_FOR(@"CreateOrder");
     if([[[self.intent.args valueForKey:@"user"] valueForKey:@"UserCode"] length] > 0){
          [p.postArgs setValue: [[self.intent.args valueForKey:@"user"] valueForKey:@"UserCode"]forKey:@"CustomerUserCode"] ;
+        [p.postArgs setValue: @"" forKey:@"CustomerPhone"] ;
+
     }else{
-         [p.postArgs setValue: self.txtUser.text forKey:@"CustomerUserCode"] ;
+        [p.postArgs setValue: self.txtUser.text forKey:@"CustomerPhone"] ;
+        [p.postArgs setValue: @"" forKey:@"CustomerUserCode"] ;
+        
     }
    
     

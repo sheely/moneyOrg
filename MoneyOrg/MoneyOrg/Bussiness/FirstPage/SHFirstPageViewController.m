@@ -12,6 +12,9 @@
 @interface SHFirstPageViewController ()
 {
     NSArray * mImage ;
+    NSTimer * timer;
+    int  direct;
+    int index;
 }
 @end
 
@@ -36,8 +39,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"财富导航";
+    self.title = @"有钱";
+        timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(btnChanged:) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view from its nib.
+}
+- (void)btnChanged:(NSObject*)nssender
+{
+    if(direct){
+        index--;
+    }else{
+        index++;
+    }
+    if(index == mImage.count -1){
+        direct = 1;
+    }else if (index==0){
+        direct = 0;
+    }
+    [self.scroll setContentOffset:CGPointMake(index*self.view.frame.size.width, 0) animated:YES];
+    
 }
 
 - (void)loadNext
@@ -46,6 +65,9 @@
     post.URL = URL_FOR(@"GetHomePage");
     [post start:^(SHTask * t) {
         mImage = [t.result valueForKey:@"PicList"];
+        if(mImage.count > 1){
+             timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(btnChanged:) userInfo:nil repeats:YES];
+        }
         mList = [t.result valueForKey:@"ProList"];
         for (int i = 0; i < mImage.count; i++) {
             NSDictionary * dic = [mImage objectAtIndex:i ];
@@ -82,6 +104,9 @@
     if([a count]> 3){
     cell.labC4.text =  [[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:1] ;    //cell.labNum.text = [dic valueForKey:@"ProductCode"];
     }
+    CGRect r = cell.labName.frame;
+    r.size.width = 300;
+    cell.labName.frame = r;
     cell.labName.text = [dic valueForKey:@"ShortProductName"];
     //cell.labCusNum.text = [[dic valueForKey:@"CustomerNum"] stringValue];
     [cell alternate:indexPath];
@@ -111,7 +136,7 @@
     [intent.args setValue:[dic valueForKey:@"ShortProductName"] forKey:@"title"];
     
     NSArray *a = [[dic valueForKey:@"Columns"]componentsSeparatedByString:@"|"];
-    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“财富导航”，他推荐您关注此产品：[%@]产品摘要模版[%@:%@],[%@:%@],[%@:%@],[%@:%@],想查看产品详情并和认证理财师互动,请下载财富导航app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[dic valueForKey:@"ShortProductName"],[[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:1]];
+    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“天天有钱”，他推荐您关注此产品：[%@]产品摘要模版[%@:%@],[%@:%@],[%@:%@],[%@:%@],想查看产品详情并和认证理财师互动,请下载财富导航app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[dic valueForKey:@"ShortProductName"],[[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:0] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:1] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:2] componentsSeparatedByString:@":"] objectAtIndex:1],[[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:0],[[[a objectAtIndex:3] componentsSeparatedByString:@":"] objectAtIndex:1]];
     [intent.args setValue:msg forKey:@"text"];
     [[UIApplication sharedApplication]open:intent];
 }
@@ -127,8 +152,8 @@
 
 - (IBAction)btnOnTouch:(id)sender
 {
-    int   index = (self.scroll.contentOffset.x + self.scroll.frame.size.width/2 )/self.scroll.frame.size.width;
-    NSDictionary * dic = [mImage objectAtIndex:index];
+    int   index_ = (self.scroll.contentOffset.x + self.scroll.frame.size.width/2 )/self.scroll.frame.size.width;
+    NSDictionary * dic = [mImage objectAtIndex:index_];
     SHIntent * i = [[SHIntent alloc]init:@"webview" delegate:nil containner:self.navigationController];
     [i.args setValue:  [ dic valueForKey: @"PageUrl"] forKey:@"url"];
     [i.args setValue:@"浏览器" forKey:@"title"];

@@ -43,10 +43,7 @@
     sublist = [[NSMutableArray alloc]init];
     for (SHModule* module in array) {
         if(USER_TYPE == 1){
-            if([module->name caseInsensitiveCompare:@"first"] == NSOrderedSame){
-                module->type = @"main";
-                continue;
-            }else if([module->name caseInsensitiveCompare:@"myshop"] == NSOrderedSame){
+           if([module->name caseInsensitiveCompare:@"myshop"] == NSOrderedSame){
                 module->type = @"main";
                 continue;
             } else if([module->name caseInsensitiveCompare:@"recommend"] == NSOrderedSame){
@@ -59,7 +56,7 @@
             if([module->name caseInsensitiveCompare:@"recommend"] == NSOrderedSame){
                 module->type = @"main";
                 continue;
-            }else if([module->name caseInsensitiveCompare:@"first"] == NSOrderedSame){
+            }else if([module->name caseInsensitiveCompare:@"myshop"] == NSOrderedSame){
                 module->type = @"--";
                 continue;
             }

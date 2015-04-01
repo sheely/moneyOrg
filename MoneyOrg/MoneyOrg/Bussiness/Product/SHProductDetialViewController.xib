@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SHProductDetialViewController">
             <connections>
+                <outlet property="btnDoc" destination="Lvy-TQ-put" id="iuW-fc-KUo"/>
                 <outlet property="btnOrder" destination="RmM-vM-AJS" id="doY-2Y-DeG"/>
                 <outlet property="btnShare" destination="GrT-1N-P2V" id="Tdn-s0-hV1"/>
                 <outlet property="btnTuijian" destination="Mdh-6r-FvN" id="xJG-Rm-v4p"/>
@@ -38,7 +39,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GrT-1N-P2V">
-                    <rect key="frame" x="216" y="533" width="40" height="30"/>
+                    <rect key="frame" x="226" y="533" width="40" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" red="0.1019607843" green="0.50588235290000005" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,8 +50,20 @@
                         <action selector="btnShareOnTouch:" destination="-1" eventType="touchUpInside" id="T0M-bl-IeF"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Lvy-TQ-put">
+                    <rect key="frame" x="134" y="533" width="40" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.7254902124" blue="0.69803923369999998" alpha="1" colorSpace="deviceRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="方案">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnDocOnTouch:" destination="-1" eventType="touchUpInside" id="Jb5-24-hBu"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RmM-vM-AJS">
-                    <rect key="frame" x="262" y="533" width="40" height="30"/>
+                    <rect key="frame" x="272" y="533" width="40" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" red="0.97254908080000002" green="0.30980393290000002" blue="0.21568629149999999" alpha="1" colorSpace="deviceRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -62,7 +75,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mdh-6r-FvN">
-                    <rect key="frame" x="170" y="533" width="40" height="30"/>
+                    <rect key="frame" x="180" y="533" width="40" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

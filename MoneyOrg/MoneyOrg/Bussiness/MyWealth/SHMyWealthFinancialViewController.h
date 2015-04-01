@@ -10,7 +10,6 @@
 
 @interface SHMyWealthFinancialViewController : SHViewController
 @property (weak, nonatomic) IBOutlet UILabel *labName;
-@property (weak, nonatomic) IBOutlet UILabel *labLevel;
 @property (weak, nonatomic) IBOutlet SHImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *labMoney;
 @property (weak, nonatomic) IBOutlet UILabel *labMoney2;
@@ -20,8 +19,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnMoneyManager;
 @property (weak, nonatomic) IBOutlet UILabel *labZhiyeState;
 @property (weak, nonatomic) IBOutlet UIView *viewMyCustomer;
+@property (strong, nonatomic) IBOutlet UIView *viewPanl;
 - (IBAction)btnOrderListOnTouch:(id)sender;
 - (IBAction)btnCusOnTouch:(id)sender;
 - (IBAction)btnQualificationOnTouch:(id)sender;
+- (IBAction)btnMyInfoOnTouch:(id)sender;
+- (IBAction)btnUserPhotoOnTouch:(id)sender;
 
 @end

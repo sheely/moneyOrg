@@ -46,7 +46,7 @@
     [super viewDidLoad];
     self.title = @"产品列表";
     self.navigationItem.titleView = self.searcbar;
-    poductType = @"1";
+    poductType = @"2";
     pdsubtype = @"0";
     SearchType = @"1";
     GroupID = @"";
@@ -146,7 +146,7 @@
     [i.args setValue:@"true" forKey:@"sms"];
     
     
-    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“财富导航”，他推荐您关注此组合:%@,想查看组合详情并和认证理财师互动,请下载财富导航app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[self.intent.args valueForKey:@"group_name"] ];
+    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“天天有钱”，他推荐您关注此组合:%@,想查看组合详情并和认证理财师互动,请下载天天有钱app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[self.intent.args valueForKey:@"group_name"] ];
     [i.args setValue:msg forKey:@"text"];
     [[UIApplication sharedApplication]open:i];
 }
@@ -168,7 +168,8 @@
     [p.postArgs setValue:pdsubtype forKey:@"ProductSubType"];
     [p.postArgs setValue:GroupID forKey:@"GroupID"];
     [p.postArgs setValue:@"25" forKey:@"PageSize"];
-    [p.postArgs setValue:@"1" forKey:@"PageIndex"];
+    int index = mList.count/25 + 1;
+    [p.postArgs setValue:[NSString stringWithFormat:@"%d",index ] forKey:@"PageIndex"];
     [p.postArgs setValue:OrderFiled forKey:@"OrderFiled"];
     [p.postArgs setValue:OrderDirect forKey:@"OrderDirect"];
     [p.postArgs setValue:keyword forKey:@"Keyword"];
@@ -178,12 +179,21 @@
     //"SessionID": "9054f537-f46c-466a-a1b0-eefd99a6df71",
     [self showWaitDialogForNetWork];
     [p start:^(SHTask * t) {
-        mList = [t.result valueForKey:@"Content"];
+        NSArray* list = [t.result valueForKey:@"Content"];
         [titleview.btnC1 setTitle:[t.result valueForKey:@"ColumnName1"] forState:UIControlStateNormal];
         [titleview.btnC2 setTitle:[t.result valueForKey:@"ColumnName2"]  forState:UIControlStateNormal];
         [titleview.btnC3 setTitle:[t.result valueForKey:@"ColumnName3"]  forState:UIControlStateNormal];
         [titleview.btnC4 setTitle:[t.result valueForKey:@"ColumnName4"]  forState:UIControlStateNormal];
-        mIsEnd = YES;
+        if(list.count == 0){
+            mIsEnd = YES;
+        }else if (list.count < 25){
+            mIsEnd = YES;
+        }
+        if(mList == nil){
+            mList = [list mutableCopy];
+        }else{
+            [mList addObjectsFromArray:list];
+        }
         [self.tableView reloadData];
         [self dismissWaitDialog];
     } taskWillTry:nil taskDidFailed:^(SHTask *t ) {
@@ -270,7 +280,7 @@
     [intent.args setValue:dic forKey:@"dic"];
     [intent.args setValue:[dic valueForKey:@"ProductID"] forKey:@"id"];
     [intent.args setValue:[dic valueForKey:@"ProductName"] forKey:@"title"];
-    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“财富导航”，他推荐您关注此产品：[%@]产品摘要模版[%@:%@],[%@:%@],[%@:%@],[%@:%@],想查看产品详情并和认证理财师互动,请下载财富导航app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[dic valueForKey:@"ProductName"],titleview.btnC1.currentTitle,[dic valueForKey:@"Column1"],titleview.btnC2.currentTitle,[dic valueForKey:@"Column2"],titleview.btnC3.currentTitle,[dic valueForKey:@"Column3"],titleview.btnC4.currentTitle,[dic valueForKey:@"Column4"]];
+    NSString * msg = [NSString  stringWithFormat:@"理财师【当前理财师姓名%@】正在使用“天天有钱”，他推荐您关注此产品：[%@]产品摘要模版[%@:%@],[%@:%@],[%@:%@],[%@:%@],想查看产品详情并和认证理财师互动,请下载天天有钱app",[[[NSUserDefaults standardUserDefaults] valueForKey:@"User"]valueForKey:@"UserName"],[dic valueForKey:@"ProductName"],titleview.btnC1.currentTitle,[dic valueForKey:@"Column1"],titleview.btnC2.currentTitle,[dic valueForKey:@"Column2"],titleview.btnC3.currentTitle,[dic valueForKey:@"Column3"],titleview.btnC4.currentTitle,[dic valueForKey:@"Column4"]];
     [intent.args setValue:msg forKey:@"text"];
     [[UIApplication sharedApplication]open:intent];
     
@@ -286,6 +296,7 @@
 
 - (void)reSet
 {
+    mIsEnd = NO;
     [mList removeAllObjects];
     [self loadNext];
 }
@@ -401,6 +412,7 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    searchBar.showsCancelButton = NO;
     keyword  = @"";
     [searchBar resignFirstResponder ];
     [self reSet];
@@ -411,5 +423,14 @@
 {
     keyword  = searchBar.text;
     [self reSet];
+}
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    searchBar.showsCancelButton = NO;
+
+}
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{    searchBar.showsCancelButton = YES;
+
 }
 @end

@@ -9,6 +9,7 @@
 #import "SHViewController.h"
 
 @interface SHCollectViewController : SHTableViewController
-@property (strong, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet SHImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *labName;
 
 @end

@@ -108,6 +108,9 @@
 		9E30AB6B1A7E90C200A7812F /* SHOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E30AB691A7E90C200A7812F /* SHOrderDetailViewController.m */; };
 		9E30AB6C1A7E90C200A7812F /* SHOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E30AB6A1A7E90C200A7812F /* SHOrderDetailViewController.xib */; };
 		9E30AB6E1A7E9CF500A7812F /* ic_list_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E30AB6D1A7E9CF500A7812F /* ic_list_down@2x.png */; };
+		9E39F8761AC4651900553F70 /* 本周精选.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E39F8751AC4651900553F70 /* 本周精选.png */; };
+		9E39F87A1AC46A2600553F70 /* SHMyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F8781AC46A2600553F70 /* SHMyInfoViewController.m */; };
+		9E39F87B1AC46A2600553F70 /* SHMyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E39F8791AC46A2600553F70 /* SHMyInfoViewController.xib */; };
 		9E3BB5A51AA2F1030065A02F /* SHSexOrientationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BB5A41AA2F1030065A02F /* SHSexOrientationViewController.m */; };
 		9E3BB5A71AA2F1110065A02F /* SHSexOrientationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3BB5A61AA2F1110065A02F /* SHSexOrientationViewController.xib */; };
 		9E3BB5AA1AA2F5A60065A02F /* SHSexOrientationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BB5A91AA2F5A60065A02F /* SHSexOrientationCell.m */; };
@@ -316,6 +319,9 @@
 		9E9E95F81ABF195500390993 /* shop_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E95F41ABF195500390993 /* shop_sel.png */; };
 		9E9E95F91ABF195500390993 /* 店铺代用图片.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E95F51ABF195500390993 /* 店铺代用图片.png */; };
 		9E9E95FB1ABF196A00390993 /* ic_shop_nom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E95FA1ABF196A00390993 /* ic_shop_nom@2x.png */; };
+		9EAA0B871AC8588F001280F1 /* ic_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EAA0B861AC8588F001280F1 /* ic_home@2x.png */; };
+		9EAA0B891AC85BF7001280F1 /* ic_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EAA0B881AC85BF7001280F1 /* ic_star.png */; };
+		9EAA0B8B1AC86510001280F1 /* 背景2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EAA0B8A1AC86510001280F1 /* 背景2.jpg */; };
 		9EC6F6971A9F62C000AEEEE1 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC6F6931A9F62C000AEEEE1 /* 1.png */; };
 		9EC6F6981A9F62C000AEEEE1 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC6F6941A9F62C000AEEEE1 /* 2.png */; };
 		9EC6F6991A9F62C000AEEEE1 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EC6F6951A9F62C000AEEEE1 /* 3.png */; };
@@ -477,6 +483,10 @@
 		9E30AB691A7E90C200A7812F /* SHOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHOrderDetailViewController.m; sourceTree = "<group>"; };
 		9E30AB6A1A7E90C200A7812F /* SHOrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHOrderDetailViewController.xib; sourceTree = "<group>"; };
 		9E30AB6D1A7E9CF500A7812F /* ic_list_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_list_down@2x.png"; sourceTree = "<group>"; };
+		9E39F8751AC4651900553F70 /* 本周精选.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "本周精选.png"; sourceTree = "<group>"; };
+		9E39F8771AC46A2600553F70 /* SHMyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMyInfoViewController.h; sourceTree = "<group>"; };
+		9E39F8781AC46A2600553F70 /* SHMyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMyInfoViewController.m; sourceTree = "<group>"; };
+		9E39F8791AC46A2600553F70 /* SHMyInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHMyInfoViewController.xib; sourceTree = "<group>"; };
 		9E3BB5A31AA2F1030065A02F /* SHSexOrientationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSexOrientationViewController.h; sourceTree = "<group>"; };
 		9E3BB5A41AA2F1030065A02F /* SHSexOrientationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSexOrientationViewController.m; sourceTree = "<group>"; };
 		9E3BB5A61AA2F1110065A02F /* SHSexOrientationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSexOrientationViewController.xib; sourceTree = "<group>"; };
@@ -797,7 +807,7 @@
 		9E68C6421AB5F223009987D3 /* ic_sort_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_sort_up.png; sourceTree = "<group>"; };
 		9E68C6431AB5F223009987D3 /* ic_sort.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_sort.png; sourceTree = "<group>"; };
 		9E9E95E71ABEB14100390993 /* SHCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCollectViewController.h; sourceTree = "<group>"; };
-		9E9E95E81ABEB14100390993 /* SHCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCollectViewController.m; sourceTree = "<group>"; };
+		9E9E95E81ABEB14100390993 /* SHCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; path = SHCollectViewController.m; sourceTree = "<group>"; };
 		9E9E95E91ABEB14100390993 /* SHCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHCollectViewController.xib; sourceTree = "<group>"; };
 		9E9E95ED1ABEB47100390993 /* SHFirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHFirstPageViewController.h; sourceTree = "<group>"; };
 		9E9E95EE1ABEB47100390993 /* SHFirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHFirstPageViewController.m; sourceTree = "<group>"; };
@@ -807,6 +817,9 @@
 		9E9E95F41ABF195500390993 /* shop_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_sel.png; sourceTree = "<group>"; };
 		9E9E95F51ABF195500390993 /* 店铺代用图片.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "店铺代用图片.png"; sourceTree = "<group>"; };
 		9E9E95FA1ABF196A00390993 /* ic_shop_nom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_shop_nom@2x.png"; sourceTree = "<group>"; };
+		9EAA0B861AC8588F001280F1 /* ic_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_home@2x.png"; sourceTree = "<group>"; };
+		9EAA0B881AC85BF7001280F1 /* ic_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_star.png; sourceTree = "<group>"; };
+		9EAA0B8A1AC86510001280F1 /* 背景2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "背景2.jpg"; sourceTree = "<group>"; };
 		9EC6F6931A9F62C000AEEEE1 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		9EC6F6941A9F62C000AEEEE1 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		9EC6F6951A9F62C000AEEEE1 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -932,6 +945,7 @@
 		9E03DB9E1A74F6CF0034D632 /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				9EAA0B861AC8588F001280F1 /* ic_home@2x.png */,
 				9E9E95FA1ABF196A00390993 /* ic_shop_nom@2x.png */,
 				9E9E95F21ABF195500390993 /* ic_collection_nom@2x.png */,
 				9E9E95F31ABF195500390993 /* ic_collection_sel@2x.png */,
@@ -1110,6 +1124,7 @@
 		9E30AB4C1A7D550D00A7812F /* MyWealth */ = {
 			isa = PBXGroup;
 			children = (
+				9EAA0B881AC85BF7001280F1 /* ic_star.png */,
 				9E0EFB5C1A8E575A001373F9 /* ChineseString.h */,
 				9E0EFB5D1A8E575A001373F9 /* ChineseString.m */,
 				9E0EFB5E1A8E575A001373F9 /* pinyin.c */,
@@ -1156,6 +1171,9 @@
 				9E3DA0FC1A9E24C400DFF530 /* SHAgreementViewController.h */,
 				9E3DA0FD1A9E24C400DFF530 /* SHAgreementViewController.m */,
 				9E3DA0FE1A9E24C400DFF530 /* SHAgreementViewController.xib */,
+				9E39F8771AC46A2600553F70 /* SHMyInfoViewController.h */,
+				9E39F8781AC46A2600553F70 /* SHMyInfoViewController.m */,
+				9E39F8791AC46A2600553F70 /* SHMyInfoViewController.xib */,
 			);
 			path = MyWealth;
 			sourceTree = "<group>";
@@ -1817,6 +1835,7 @@
 		9E9E95E61ABEB10000390993 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				9EAA0B8A1AC86510001280F1 /* 背景2.jpg */,
 				9E9E95E71ABEB14100390993 /* SHCollectViewController.h */,
 				9E9E95E81ABEB14100390993 /* SHCollectViewController.m */,
 				9E9E95E91ABEB14100390993 /* SHCollectViewController.xib */,
@@ -1827,6 +1846,7 @@
 		9E9E95EC1ABEB46000390993 /* FirstPage */ = {
 			isa = PBXGroup;
 			children = (
+				9E39F8751AC4651900553F70 /* 本周精选.png */,
 				9E9E95ED1ABEB47100390993 /* SHFirstPageViewController.h */,
 				9E9E95EE1ABEB47100390993 /* SHFirstPageViewController.m */,
 				9E9E95EF1ABEB47100390993 /* SHFirstPageViewController.xib */,
@@ -1897,7 +1917,7 @@
 				TargetAttributes = {
 					9E3BD1131A68107300AED2A9 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = RJ35P28RXH;
+						DevelopmentTeam = B7MKHLZAJB;
 					};
 					9E3BD12F1A68107300AED2A9 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1973,6 +1993,7 @@
 				9E3BD2F71A6815BF00AED2A9 /* ic_re_error@2x.png in Resources */,
 				9E0EFB4F1A8B740F001373F9 /* SHCustomerAddCell_new.xib in Resources */,
 				9E30AB5B1A7E22EE00A7812F /* SHProductDetialViewController.xib in Resources */,
+				9EAA0B871AC8588F001280F1 /* ic_home@2x.png in Resources */,
 				9E3BD2CC1A6815BF00AED2A9 /* button_current_bg.png in Resources */,
 				9E68C6451AB5F223009987D3 /* ic_sort_up.png in Resources */,
 				9E03DBAE1A74F7080034D632 /* ic_box.png in Resources */,
@@ -1983,6 +2004,7 @@
 				9E3BD2F91A6815BF00AED2A9 /* SHLoadingViewCell.xib in Resources */,
 				9EC6F6981A9F62C000AEEEE1 /* 2.png in Resources */,
 				9E0EFB221A86171F001373F9 /* ic_radio_buttons@2x.png in Resources */,
+				9EAA0B8B1AC86510001280F1 /* 背景2.jpg in Resources */,
 				9E68C6441AB5F223009987D3 /* ic_sort_down.png in Resources */,
 				9E10DE961AAF69D40071E374 /* ShareSDKFlatShareViewUI.bundle in Resources */,
 				9E03DB921A6BBA4B0034D632 /* ic_user.png in Resources */,
@@ -2059,13 +2081,16 @@
 				9E3BD3151A6815C000AED2A9 /* status-bar-pattern-black.jpg in Resources */,
 				9E0EFB381A890632001373F9 /* MyCustomerListViewController.xib in Resources */,
 				9E3BD2B21A6815BF00AED2A9 /* whiteArrow.png in Resources */,
+				9E39F87B1AC46A2600553F70 /* SHMyInfoViewController.xib in Resources */,
 				9E3BD3181A6815C000AED2A9 /* status-bar-pattern-default@2x.jpg in Resources */,
+				9E39F8761AC4651900553F70 /* 本周精选.png in Resources */,
 				9E3BD2AD1A6815BF00AED2A9 /* blackArrow@2x.png in Resources */,
 				9E3BD3031A6815BF00AED2A9 /* SHTableViewTitleContentBottomCell.xib in Resources */,
 				9E30AB621A7E82D300A7812F /* SHOrderListViewController.xib in Resources */,
 				9E0EFB1E1A86146A001373F9 /* SHCreateAssembleViewController.xib in Resources */,
 				9E3BD2AE1A6815BF00AED2A9 /* blueArrow.png in Resources */,
 				9E0EFB241A87032E001373F9 /* ic_ok@2x.png in Resources */,
+				9EAA0B891AC85BF7001280F1 /* ic_star.png in Resources */,
 				9E3BD28C1A6815BF00AED2A9 /* string.xml in Resources */,
 				9E3BD2D31A6815BF00AED2A9 /* MBProgressHUD.bundle in Resources */,
 				9E9E95FB1ABF196A00390993 /* ic_shop_nom@2x.png in Resources */,
@@ -2134,6 +2159,7 @@
 				9E3BD3341A6815C000AED2A9 /* NSObjectAddtion.m in Sources */,
 				9E3BD2C61A6815BF00AED2A9 /* MMProgressHUDWindow.m in Sources */,
 				9E3BD3111A6815BF00AED2A9 /* BWStatusBarOverlay.m in Sources */,
+				9E39F87A1AC46A2600553F70 /* SHMyInfoViewController.m in Sources */,
 				9E3BD3351A6815C000AED2A9 /* SHAppDelegate.m in Sources */,
 				9E3BD32E1A6815C000AED2A9 /* HelperCMD.m in Sources */,
 				9E3BD32B1A6815C000AED2A9 /* DebugTextView.m in Sources */,
