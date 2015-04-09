@@ -117,7 +117,7 @@
                                        defaultContent:@"我的分享"
                                                 image:nil
                                                 title:@"我的分享"
-                                                  url:@"http://www.solutionet.cn"
+                                                  url:[NSString stringWithFormat:@"%@/ProductDetail.aspx?ProductID=%@",URL_HEADER_WEB_URL,[self.intent.args valueForKey:@"id"] ]
                                           description:[self.intent.args valueForKey:@"text"]
                                             mediaType:SSPublishContentMediaTypeNews];
     //创建弹出菜单容器
